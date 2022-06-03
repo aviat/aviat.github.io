@@ -1,6 +1,9 @@
+---
 layout: page
 title: "BSides SF 2022"
 permalink: /2022/bsides-sf/
+---
+
 
 # BSides SF 2022
 
