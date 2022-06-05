@@ -14,6 +14,8 @@ Our [talk](https://bsidessf2022.sched.com/event/rjrC/xss-mitigation-the-state-of
 
 # Resources
 
+## Web security model: Same Origin Policy, 1995
+ - [The Tangled Web book](https://www.amazon.com/Tangled-Web-Securing-Modern-Applications/dp/1593273886)
 ## Various exploits
  - [2005](https://en.wikipedia.org/wiki/Samy_(computer_worm))
  - [2013](https://securityaffairs.co/wordpress/22743/cyber-crime/soho-pharming-attack.html)
@@ -22,6 +24,15 @@ Our [talk](https://bsidessf2022.sched.com/event/rjrC/xss-mitigation-the-state-of
  - [2019](https://nakedsecurity.sophos.com/2019/11/20/xss-security-hole-in-gmails-dynamic-email/)
  - [2021](https://www.bleepingcomputer.com/news/security/phishing-campaign-uses-upscom-xss-vuln-to-distribute-malware/)
  - [2022](https://www.zdnet.com/article/operation-emailthief-xss-vulnerability-in-zimbra-open-source-email-platform-revealed/)
+## Juicy targets: Electron apps
+ - [notable](https://sghosh2402.medium.com/cve-2020-16608-8cdad9f4d9b4)
+ - [rambox](https://nvd.nist.gov/vuln/detail/CVE-2019-17625)
+ - [zonote](https://infosecwriteups.com/remote-code-execution-through-cross-site-scripting-in-electron-f3b891ad637)
+## Most common bypasses
+ - [Script gadgets](https://raw.githubusercontent.com/sroettger/security-research-pocs/master/script-gadgets/Breaking_XSS_mitigations_via_Script_Gadgets_BHUSA.pdf)
+ - [test your CSP for weaknesses](https://csp-evaluator.withgoogle.com/)
+ - [evaluate](https://web.dev/strict-csp/)
+ - [ feasibility of a strict CSP](https://web.dev/strict-csp/)
 ## Disable JavaScript
  - [CVE-1999-0031](https://exchange.xforce.ibmcloud.com/vulnerabilities/366)
 ## Content Security Policy
@@ -33,12 +44,12 @@ Our [talk](https://bsidessf2022.sched.com/event/rjrC/xss-mitigation-the-state-of
  - [HTML Sanitizer API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Sanitizer_API)
 ## Cookies security
  - [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
-## page31
+## Mike West
  - [https://twitter.com/mikewest/](https://twitter.com/mikewest/)
 ## The future of browser defenses
  - [HTML Sanitizer API](https://wicg.github.io/sanitizer-api/)
  - [and great slides about it](https://docs.google.com/presentation/d/1eLmIZkY7auD8xT-Q6AzBKM_ASFHH8Z5fMyfeoSbSH-k/view)
- - [tough path](https://www.w3.org/TR/post-spectre-webdev/)
+ - [tough path to spectre security](https://www.w3.org/TR/post-spectre-webdev/)
  - [SecurerContext](https://github.com/mikewest/securer-contexts#what-defenses-would-securecontextinjection-require)
  - [Private Network Access](https://wicg.github.io/private-network-access/)
  - [deprecate ](https://github.com/mikewest/deprecating-document-domain)
@@ -49,4 +60,9 @@ Our [talk](https://bsidessf2022.sched.com/event/rjrC/xss-mitigation-the-state-of
  - [https://haml.info/](https://haml.info/)
 ## Static Application Security Testing (SAST)
  - [Semgrep XSS](https://semgrep.dev/p/xss)
+## Security headers soupe
+ - [security headers comprehensive reference](https://web.dev/security-headers/)
+## Supply chain security: XSS specific risks
+ - [Subresource Integrity (SRI)](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity)
+ - [automate SRI management with webpack-subresource-integrity](https://www.npmjs.com/package/webpack-subresource-integrity)
 
