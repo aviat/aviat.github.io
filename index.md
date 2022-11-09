@@ -20,4 +20,5 @@ of devices.
 
 ## 2022
 
-- [BSides SF](/2022-bsidessf.html)
+- [BSides SF](/2022-bsidessf.md)
+- [BSides Lisbon](/2022-bsideslisbon.md)
