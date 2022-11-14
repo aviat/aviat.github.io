@@ -4,7 +4,9 @@ title: "BSides Lisbon 2022"
 
 # BSides Lisbon 2022
 
-My [talk](https://bsidessf2022.sched.com/event/rjrC/xss-mitigation-the-state-of-the-art) date is Thursday 10th, November 2022.
+The slides (PDF) can be [downloaded here](<resources/Pentesting on steroids using performance monitoring.pdf>).
+
+My [talk](https://bsidessf2022.sched.com/event/rjrC/xss-mitigation-the-state-of-the-art) happened Thursday 10th, November 2022.
 
 # Speaker
 
