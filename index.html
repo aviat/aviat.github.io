@@ -7,16 +7,100 @@ title: Home
     <p class="lead">Former CTO with expertise in application security, cloud infrastructure, and software development.</p>
 </section>
 
-<section class="featured-work">
-    <h2>Featured Work</h2>
-    <div class="portfolio-grid">
-        {% assign sorted_portfolio = site.portfolio | sort: 'date' | reverse %}
-        {% for item in sorted_portfolio limit:3 %}
-        <article class="portfolio-preview">
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.description }}</p>
-            <a href="{{ item.url | relative_url }}" class="read-more">Read More</a>
-        </article>
-        {% endfor %}
+<section class="portfolio-list">
+    <div class="filters">
+        <div class="filter-group">
+            <span class="filter-label">Type:</span>
+            <div class="filter-buttons" data-filter="type">
+                <button class="filter-btn active" data-value="all">All</button>
+                {% assign types = site.portfolio | map: "type" | uniq | sort %}
+                {% for type in types %}
+                <button class="filter-btn" data-value="{{ type }}">{{ type }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="filter-group">
+            <span class="filter-label">Language:</span>
+            <div class="filter-buttons" data-filter="language">
+                <button class="filter-btn active" data-value="all">All</button>
+                {% assign languages = site.portfolio | map: "language" | uniq | sort %}
+                {% for language in languages %}
+                <button class="filter-btn" data-value="{{ language }}">{{ language }}</button>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-</section> 
+
+    {% assign sorted_portfolio = site.portfolio | sort: 'date' | reverse %}
+    {% for item in sorted_portfolio %}
+    <article class="portfolio-item" 
+             data-type="{{ item.type }}"
+             data-language="{{ item.language }}">
+        <div class="portfolio-header">
+            <h2>
+                {% if item.source_link %}
+                <a href="{{ item.source_link }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+                {% else %}
+                {{ item.title }}
+                {% endif %}
+            </h2>
+            <div class="portfolio-meta">
+                <span class="type">{{ item.type }}</span>
+                <span class="date">{{ item.date | date: "%b %-d, %Y" }}</span>
+                {% if item.language %}
+                <span class="language">{{ item.language }}</span>
+                {% endif %}
+                {% if item.guests and item.guests != "" %}
+                <span class="guests">with {{ item.guests }}</span>
+                {% endif %}
+            </div>
+        </div>
+        <div class="portfolio-content">
+            {{ item.content }}
+        </div>
+    </article>
+    {% endfor %}
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterGroups = document.querySelectorAll('.filter-buttons');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    filterGroups.forEach(group => {
+        const filterType = group.dataset.filter;
+        const buttons = group.querySelectorAll('.filter-btn');
+        
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active state
+                buttons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Get all active filters
+                const activeFilters = {};
+                document.querySelectorAll('.filter-buttons').forEach(filterGroup => {
+                    const type = filterGroup.dataset.filter;
+                    const activeBtn = filterGroup.querySelector('.filter-btn.active');
+                    activeFilters[type] = activeBtn.dataset.value;
+                });
+                
+                // Filter items
+                portfolioItems.forEach(item => {
+                    let show = true;
+                    
+                    // Check each filter type
+                    Object.entries(activeFilters).forEach(([type, value]) => {
+                        if (value !== 'all' && item.dataset[type] !== value) {
+                            show = false;
+                        }
+                    });
+                    
+                    // Show/hide item
+                    item.style.display = show ? 'block' : 'none';
+                });
+            });
+        });
+    });
+});
+</script> 
