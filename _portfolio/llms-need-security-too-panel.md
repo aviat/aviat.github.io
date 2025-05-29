@@ -1,8 +1,8 @@
 ---
 layout: "portfolio-item"
-title: "“LLMs Need Security Too” (Panel)"
+title: "LLMs Need Security Too (Panel)"
 type: "Video (Panel Discussion)"
-date: "2023"
+date: "01 January 2023"
 language: "English"
 guests: ""
 source_link: "YouTube Video"

@@ -1,0 +1,21 @@
+FROM arm64v8/ruby:3.3
+
+WORKDIR /srv/jekyll
+
+RUN gem install bundler
+
+# Copy Gemfile and Gemfile.lock
+COPY Gemfile* ./
+
+# Install dependencies
+RUN bundle install
+
+# Copy the rest of the site
+COPY . .
+
+RUN jekyll build --destination /srv/jekyll/_site
+
+
+CMD ["sh"]
+# Build the site
+# CMD ["jekyll", "build", "--destination", "/srv/jekyll/_site"] 

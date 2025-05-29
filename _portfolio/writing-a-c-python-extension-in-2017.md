@@ -2,7 +2,7 @@
 layout: "portfolio-item"
 title: "Writing a C Python Extension in 2017"
 type: "Video (Talk)"
-date: "2017"
+date: "01 January 2017"
 language: "English"
 guests: ""
 source_link: "YouTube Video"
