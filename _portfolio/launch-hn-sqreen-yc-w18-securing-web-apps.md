@@ -5,7 +5,7 @@ type: "Forum Post (HN)"
 date: "18 June 2019"
 language: "English"
 guests: ""
-source_link: "Hacker News"
+source_link: "https://news.ycombinator.com/item?id=20215483"
 duration: ""
 ---
 

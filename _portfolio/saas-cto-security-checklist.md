@@ -5,7 +5,7 @@ type: "Open-Source Project (Guide)"
 date: "01 January 2018"
 language: "English"
 guests: ""
-source_link: "GitHub Repository"
+source_link: "https://github.com/sqreen/CTOSecurityChecklist"
 duration: ""
 ---
 

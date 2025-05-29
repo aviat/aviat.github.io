@@ -5,7 +5,7 @@ type: "Audio (Talk)"
 date: "09 July 2021"
 language: "English"
 guests: "Jim Manico"
-source_link: "Developers vs. Security Training with Jim Manico"
+source_link: "https://podcasts.apple.com/us/podcast/developers-vs-security-training-with-jim-manico/id1535238655?i=1000528346139"
 duration: "39 min"
 ---
 

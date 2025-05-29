@@ -1,312 +1,312 @@
 [
-  {
-    "Title / Name": "Application Security from the Inside",
-    "Type": "Video (Talk)",
-    "Date": "2016-04-22",
-    "Language": "English",
-    "Guests": "",
-    "Description / Summary": "Conference talk at dotSecurity 2016 (Paris) illustrating internal application security pain points and techniques. Filmed at 2016.dotSecurity.io on April 22, 2016 .",
-    "Source Link": "YouTube Video",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "Writing a C Python Extension in 2017",
-    "Type": "Video (Talk)",
-    "Date": "2017",
-    "Language": "English",
-    "Guests": "",
-    "Description / Summary": "Technical talk (PyParis 2017) describing how to build a C extension for Python with modern packaging practices . Covers creating prebuilt binaries and distribution in 2017.",
-    "Source Link": "YouTube Video",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "Scaling APIs from 0 to 40k RPM",
-    "Type": "Video (Talk)",
-    "Date": "2017-09-27",
-    "Language": "English",
-    "Guests": "",
-    "Description / Summary": "TechLunch talk (hosted by Algolia) in which J.-B. Aviat (Sqreen) shares how their startup scaled its APIs to handle ~40k requests per minute . Discusses infrastructure and performance tuning.",
-    "Source Link": "YouTube Video",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "Onboarding Developers & Setting Them Up for Success",
-    "Type": "Video (Talk)",
-    "Date": "2019-09",
-    "Language": "English",
-    "Guests": "",
-    "Description / Summary": "Talk at The Family (Paris) where J.-B. Aviat (CTO, Sqreen) shares best practices for onboarding new developers. Emphasizes avoiding burnout and setting up devs for success .",
-    "Source Link": "YouTube Video",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "Prevent Business Logic Attacks Using Dynamic Instrumentation",
-    "Type": "Video (Conference Talk)",
-    "Date": "2018-10",
-    "Language": "English",
-    "Guests": "",
-    "Description / Summary": "Conference talk (OWASP AppSec USA 2018 and SysAdmin Days 2018) demonstrating how to instrument apps to prevent complex business logic attacks beyond the OWASP Top 10  . Introduces a security automation tool using in-app sensors and runtime analysis.",
-    "Source Link": "YouTube Video",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "XSS Mitigation: The State of the Art",
-    "Type": "Video (Talk)",
-    "Date": "2022-06-05",
-    "Language": "English",
-    "Guests": "",
-    "Description / Summary": "BSidesSF 2022 presentation covering modern XSS attack mitigations. Explains how to implement effective defenses (CSPv3, Trusted Types, CORP/CORB, etc.) at every layer of a web application .",
-    "Source Link": "YouTube Video",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "Pentesting on Steroids Using Performance Monitoring",
-    "Type": "Video (Talk)",
-    "Date": "2022-11-10",
-    "Language": "English",
-    "Guests": "",
-    "Description / Summary": "BSides Lisbon 2022 talk showing how to leverage Application Performance Monitoring (APM) data to enhance penetration testing. Demonstrates using runtime observability (performance monitoring) to uncover security issues .",
-    "Source Link": "YouTube Video",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "LLMs Need Security Too (Panel)",
-    "Type": "Video (Panel Discussion)",
-    "Date": "2023",
-    "Language": "English",
-    "Guests": "",
-    "Description / Summary": "All-star panel featuring J.-B. Aviat (Datadog) discussing how to secure applications using Large Language Models. Panelists (incl. Datadog and Lakera experts) share insights on emerging AI threats and defenses .",
-    "Source Link": "YouTube Video",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "We Need Fewer Heroes: Prioritizing Vulnerabilities Using Observability Data",
-    "Type": "Video (Talk)",
-    "Date": "2025",
-    "Language": "English",
-    "Guests": "",
-    "Description / Summary": "Presentation at Dashlane's 2025 Security Summit by J.-B. Aviat (Staff Security Engineer, Datadog) about leveraging observability data to prioritize and remediate vulnerabilities. Emphasizes democratizing security via Datadog's platform .",
-    "Source Link": "Dashlane Blog",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "Passe-Partout",
-    "Type": "Open-Source Project",
-    "Date": "2011",
-    "Language": "English/French",
-    "Guests": "",
-    "Description / Summary": "Security tool (Passe-Partout meaning Master Key) created by Nicolas Collignon and J.-B. Aviat. Dumps cryptographic keys from running processes (e.g. extract cached SSH private keys from memory) on Unix-like OS . Published as open-source (C language).",
-    "Source Link": "GitHub Repository",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "PyMiniRacer",
-    "Type": "Open-Source Project",
-    "Date": "2018",
-    "Language": "English",
-    "Guests": "",
-    "Description / Summary": "A minimal, embedded V8 JavaScript engine bridge for Python, created by Sqreen (co-authored by Jb Aviat). Allows running JavaScript within Python applications. PyMiniRacer is a V8 bridge in Python.  Widely used for embedding JS in Python; later open-sourced and maintained by the community.",
-    "Source Link": "GitHub Repository",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "SaaS CTO Security Checklist",
-    "Type": "Open-Source Project (Guide)",
-    "Date": "2018",
-    "Language": "English",
-    "Guests": "",
-    "Description / Summary": "The SaaS CTO Security Checklist, originally compiled by Sqreen (J.-B. Aviat and team). A comprehensive checklist of security best practices for startups/CTOs to harden their SaaS applications and infrastructure . Open-sourced (700+ stars on GitHub).",
-    "Source Link": "GitHub Repository",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "Personal Website \u2013 aviat.github.io",
-    "Type": "Personal Website",
-    "Date": "2022",
-    "Language": "English",
-    "Guests": "",
-    "Description / Summary": "J.-B. Aviat's personal site containing a brief bio and conference resources. Includes his background (Sqreen co-founder/CTO, now Datadog security engineer) and links to talks (e.g. BSides SF & Lisbon 2022)  .",
-    "Source Link": "Personal Site",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "Sqreen: A Journey with Pierre Betouin and Jean-Baptiste Aviat",
-    "Type": "Article (Interview/Feature)",
-    "Date": "2021-02-16",
-    "Language": "English",
-    "Guests": "",
-    "Description / Summary": "In-depth feature by investor Rodolphe Menegaux (Alven) recounting Sqreen's story and success. Describes how co-founders Pierre Betouin and Jb Aviat met after a decade on Apple's Red Team and set out to democratize application security with Sqreen  .",
-    "Source Link": "Alven Blog",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "Sqreen raises $14 million for its application security service",
-    "Type": "News Article",
-    "Date": "2019-04-02",
-    "Language": "English",
-    "Guests": "",
-    "Description / Summary": "TechCrunch news article by Romain Dillet on Sqreen's $14M Series A. Describes Sqreen's product (in-app security for web apps and microservices using dynamic instrumentation) and notes Greylock led the round with YC, Alven, and Point Nine participating  .",
-    "Source Link": "TechCrunch",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "\u00ab Sqreen l\u00e8ve 14 millions de dollars pour mieux prot\u00e9ger les applications web \u00bb",
-    "Type": "Article (News)",
-    "Date": "2019-04-02",
-    "Language": "French",
-    "Guests": "",
-    "Description / Summary": "FrenchWeb news piece on Sqreen's $14M fundraising. Highlights that the company was founded in 2015 in Paris by Jean-Baptiste Aviat and Pierre Betouin, both ex-Apple security engineers . Describes Sqreen's self-protection (ASM) solution and growth to 500+ clients by 2019.",
-    "Source Link": "FrenchWeb",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "La Pile Podcast \u2013 \u00c9pisode #07: Jean-Baptiste Aviat",
-    "Type": "Podcast Episode",
-    "Date": "2018-10-23",
-    "Language": "French",
-    "Guests": "",
-    "Description / Summary": "Episode of La pile podcast featuring J.-B. Aviat (CTO, Sqreen). In this episode, on invite Jean-Baptiste Aviat\u2026 CTO chez Sqreen. Dans cet \u00e9pisode, il nous donne plus de d\u00e9tails sur Sqreen et on parle ensemble de s\u00e9curit\u00e9. \u2013 i.e. he gives more details about Sqreen and discusses security topics .",
-    "Source Link": "Apple Podcasts",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "Y Combinator Winter 2018 \u2013 Sqreen Profile",
-    "Type": "Accelerator Profile",
-    "Date": "2018",
-    "Language": "English",
-    "Guests": "",
-    "Description / Summary": "Y Combinator alumni profile for Sqreen (YC Winter 2018 batch). Indicates Sqreen's product (application security platform for the modern enterprise) and lists Jean-Baptiste Aviat as Co-founder/CTO and Pierre Betouin as Co-founder/CEO  . Notes: Founded 2015, 120 employees, acquired by Datadog in 2021.",
-    "Source Link": "YC Directory",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "Launch HN: Sqreen (YC W18) \u2013 Securing Web Apps",
-    "Type": "Forum Post (HN)",
-    "Date": "2019-06-18",
-    "Language": "English",
-    "Guests": "",
-    "Description / Summary": "Hacker News Launch HN thread introducing Sqreen. The founders (Pierre & J.-B.) explain: Sqreen is an application security platform made for both engineering and security teams. We use dynamic instrumentation libraries that monitor web app execution in real-time\u2026 . Includes community Q&A (64 comments).",
-    "Source Link": "Hacker News",
-    "Duration": ""
-  },
-  {
-    "Title / Name": "Solving Race Condition Vulnerabilities (with Tanya Janca)",
-    "Type": "Audio (Talk)",
-    "Date": "2020-10-14",
-    "Language": "English",
-    "Guests": "Tanya Janca",
-    "Description / Summary": "In the inaugural episode, host Jb Aviat sits down with Tanya Janca (founder of WeHackPurple) to discuss her expertise in solving race condition vulnerabilities from her career as a software engineer and AppSec professional. They cover common types of race conditions, real-world examples (e.g. a Starbucks infinite credit bug), and actionable tips for teams to prevent this class of vulnerability  .",
-    "Source Link": "Solving Race Condition Vulnerabilities \u2013 Tanya Janca",
-    "Duration": "39 min"
-  },
-  {
-    "Title / Name": "Framework Security: the Paved Road Foundation (with Ksenia Peguero)",
-    "Type": "Audio (Talk)",
-    "Date": "2020-11-04",
-    "Language": "English",
-    "Guests": "Ksenia Peguero",
-    "Description / Summary": "Jb Aviat is joined by Ksenia Peguero (Senior Research Lead at Synopsys) for a discussion about how application frameworks impact security . They share tips for upgrading security via frameworks, choosing the best framework for your app, performing framework migrations, and how to spot and fix security blind spots in frameworks .",
-    "Source Link": "Framework Security with Ksenia Peguero",
-    "Duration": "42 min"
-  },
-  {
-    "Title / Name": "Complex System Security: a CISO Perspective (with Emilio Escobar)",
-    "Type": "Audio (Talk)",
-    "Date": "2020-12-16",
-    "Language": "English",
-    "Guests": "Emilio Escobar",
-    "Description / Summary": "Jb Aviat speaks with Datadog CISO Emilio Escobar, whose experience at Hulu and Sony provides a unique perspective on scaling security in complex systems . They discuss team maturity, leadership insights, owning security across an enterprise, and Emilio's journey to becoming the CISO of a public company .",
-    "Source Link": "Complex System Security: a CISO Perspective \u2013 Emilio Escobar",
-    "Duration": "38 min"
-  },
-  {
-    "Title / Name": "Serverless Security (with Erica Windisch)",
-    "Type": "Audio (Talk)",
-    "Date": "2021-01-20",
-    "Language": "English",
-    "Guests": "Erica Windisch",
-    "Description / Summary": "Jb Aviat chats with Erica Windisch (New Relic Principal Engineer and AWS Serverless Hero) about all things serverless . They explore why serverless security matters, how to design AppSec when migrating to serverless, scaling application security in serverless environments, and more .",
-    "Source Link": "Serverless Security with Erica Windisch",
-    "Duration": "38 min"
-  },
-  {
-    "Title / Name": "Shift Everywhere (with John Steven)",
-    "Type": "Audio (Talk)",
-    "Date": "2021-02-10",
-    "Language": "English",
-    "Guests": "John Steven",
-    "Description / Summary": "Jb Aviat sits down with John Steven (security expert and co-author of the BSIMM study) to discuss fundamental shifts in AppSec . They cover John's BSIMM findings, the move towards shifting everywhere in software security, software-defined security governance, and more best practices for modern AppSec programs .",
-    "Source Link": "Shift Everywhere with John Steven",
-    "Duration": "39 min"
-  },
-  {
-    "Title / Name": "Are Cloud Vendors also Security Vendors? (with Sarah Young)",
-    "Type": "Audio (Talk)",
-    "Date": "2021-05-14",
-    "Language": "English",
-    "Guests": "Sarah Young",
-    "Description / Summary": "Jb Aviat and guest Sarah Young (Azure Security senior program manager) discuss cloud security's evolution and the role of cloud providers in security . The conversation covers how cloud vendor solutions now integrate security features, the increased presence of cloud-native security, and what this means for developers and security teams .",
-    "Source Link": "Are Cloud Vendors Also Security Vendors? with Sarah Young",
-    "Duration": "34 min"
-  },
-  {
-    "Title / Name": "Developers vs. Security Training (with Jim Manico)",
-    "Type": "Audio (Talk)",
-    "Date": "2021-07-09",
-    "Language": "English",
-    "Guests": "Jim Manico",
-    "Description / Summary": "Host Jb Aviat welcomes Jim Manico (founder of Manicode Security) to discuss why developers should be trained in secure coding . They talk about bridging the gap between developers and AppSec, strategies for teaching secure software practices, and the importance of developer-focused security education in reducing vulnerabilities .",
-    "Source Link": "Developers vs. Security Training with Jim Manico",
-    "Duration": "39 min"
-  },
-  {
-    "Title / Name": "Vulnerability Management - The SBOM Way (Cloud Security Lounge Ep. 1)",
-    "Type": "Audio (Talk)",
-    "Date": "2023-04-20",
-    "Language": "English",
-    "Guests": "Steve Springett",
-    "Description / Summary": "Hosts Jean-Baptiste Aviat and Izar Tarandach kick off the series with Steve Springett (ServiceNow Director of Product Security and OWASP CycloneDX lead) . They discuss Software Bills of Materials (SBOMs) \u2013 common use cases, vendor pushback, and why SBOMs alone aren't a silver bullet \u2013 as well as how SBOM formats will evolve to improve vulnerability management .",
-    "Source Link": "Cloud Security Lounge: Vulnerability Management the SBOM Way",
-    "Duration": "~49 min"
-  },
-  {
-    "Title / Name": "Unblurring The Lines In Cloud Security",
-    "Type": "Audio (Talk)",
-    "Date": "2023-06-16",
-    "Language": "",
-    "Guests": "Chris Farris",
-    "Description / Summary": "Cloud security expert Chris Farris joins Jb Aviat and Izar Tarandach to discuss trends in cloud security and blurring the lines between on-premises and cloud security . They cover insights from the fwd:cloudsec conference, how cloud provider security maturity has improved, and lessons learned from recent cloud security breaches (including a deep dive into the LastPass attack)  .",
-    "Source Link": "Chris Farris \u2013 Unblurring The Lines In Cloud Security",
-    "Duration": "43 min"
-  },
-  {
-    "Title / Name": "Account Takeover Attacks: A Threat Intelligence Viewpoint",
-    "Type": "Audio (Talk)",
-    "Date": "2023-06-21",
-    "Language": "",
-    "Guests": "Zack Allen",
-    "Description / Summary": "Jb Aviat (with co-host Izar) welcomes threat intelligence expert Zack Allen to explore the epidemic of account takeover (ATO) attacks . Zack shares his experience defending organizations against massive ATO campaigns, explains attackers' financial motives and methods (like using leaked credential databases and password cracking tools), and suggests how to detect and protect against ATO threats  .",
-    "Source Link": "Account Takeover Attacks \u2013 Threat Intel Expert's View",
-    "Duration": "~50 min"
-  },
-  {
-    "Title / Name": "Vulnerability Prioritization: Looking at CVSSv4",
-    "Type": "Audio (Talk)",
-    "Date": "2023-06-29",
-    "Language": "",
-    "Guests": "Matthew Coles",
-    "Description / Summary": "In this episode, Matthew Coles (product security leader at Bose) joins the Cloud Security Lounge to demystify the upcoming CVSS 4.0 standard  . He guides the hosts through the changes in CVSSv4 and how vulnerability scoring might evolve, offering insights into improving vulnerability prioritization and risk assessment using the new CVSS version  .",
-    "Source Link": "Vulnerability Prioritization: Looking at CVSSv4",
-    "Duration": "~52 min"
-  },
-  {
-    "Title / Name": "LLMs Need Security Too",
-    "Type": "Audio (Talk)",
-    "Date": "2023-07-14",
-    "Language": "",
-    "Guests": "David Haber",
-    "Description / Summary": "Jean-Baptiste Aviat and Izar Tarandach are joined by David Haber (CEO of Lakera) to discuss the security implications of using Large Language Models in applications . They explore topics like prompt injection attacks and AI model tampering, the OWASP Top 10 for LLMs project, and Lakera's Gandalf LLM security experiment \u2013 highlighting how even AI systems require robust security measures  .",
-    "Source Link": "LLMs Need Security Too",
-    "Duration": "~49 min"
-  }
+    {
+        "Title / Name": "Application Security from the Inside",
+        "Type": "Video (Talk)",
+        "Date": "2016-04-22",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "Conference talk at dotSecurity 2016 (Paris) illustrating internal application security pain points and techniques. Filmed at 2016.dotSecurity.io on April 22, 2016 .",
+        "Duration": "",
+        "url": "https://www.youtube.com/watch?v=d1mPVcbBJl4"
+    },
+    {
+        "Title / Name": "Writing a C Python Extension in 2017",
+        "Type": "Video (Talk)",
+        "Date": "2017",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "Technical talk (PyParis 2017) describing how to build a C extension for Python with modern packaging practices . Covers creating prebuilt binaries and distribution in 2017.",
+        "Duration": "",
+        "url": "https://www.youtube.com/watch?v=SD_QllcV-yo"
+    },
+    {
+        "Title / Name": "Scaling APIs from 0 to 40k RPM",
+        "Type": "Video (Talk)",
+        "Date": "2017-09-27",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "TechLunch talk (hosted by Algolia) in which J.-B. Aviat (Sqreen) shares how their startup scaled its APIs to handle ~40k requests per minute . Discusses infrastructure and performance tuning.",
+        "Duration": "",
+        "url": "https://www.youtube.com/watch?v=tELkc8Lv04w"
+    },
+    {
+        "Title / Name": "Onboarding Developers & Setting Them Up for Success",
+        "Type": "Video (Talk)",
+        "Date": "2019-09",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "Talk at The Family (Paris) where J.-B. Aviat (CTO, Sqreen) shares best practices for onboarding new developers. Emphasizes avoiding burnout and setting up devs for success .",
+        "Duration": "",
+        "url": "https://www.youtube.com/watch?v=EaEZOJ1-rbs"
+    },
+    {
+        "Title / Name": "Prevent Business Logic Attacks Using Dynamic Instrumentation",
+        "Type": "Video (Conference Talk)",
+        "Date": "2018-10",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "Conference talk (OWASP AppSec USA 2018 and SysAdmin Days 2018) demonstrating how to instrument apps to prevent complex business logic attacks beyond the OWASP Top 10  . Introduces a security automation tool using in-app sensors and runtime analysis.",
+        "Duration": "",
+        "url": "https://www.youtube.com/watch?v=7L-bj2SKaEU"
+    },
+    {
+        "Title / Name": "XSS Mitigation: The State of the Art",
+        "Type": "Video (Talk)",
+        "Date": "2022-06-05",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "BSidesSF 2022 presentation covering modern XSS attack mitigations. Explains how to implement effective defenses (CSPv3, Trusted Types, CORP/CORB, etc.) at every layer of a web application .",
+        "Duration": "",
+        "url": "https://www.youtube.com/watch?v=4K6N_hrIZYQ"
+    },
+    {
+        "Title / Name": "Pentesting on Steroids Using Performance Monitoring",
+        "Type": "Video (Talk)",
+        "Date": "2022-11-10",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "BSides Lisbon 2022 talk showing how to leverage Application Performance Monitoring (APM) data to enhance penetration testing. Demonstrates using runtime observability (performance monitoring) to uncover security issues .",
+        "Duration": "",
+        "url": "https://www.youtube.com/watch?v=gJPkOqXydjY"
+    },
+    {
+        "Title / Name": "LLMs Need Security Too (Panel)",
+        "Type": "Video (Panel Discussion)",
+        "Date": "2023",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "All-star panel featuring J.-B. Aviat (Datadog) discussing how to secure applications using Large Language Models. Panelists (incl. Datadog and Lakera experts) share insights on emerging AI threats and defenses .",
+        "Duration": "",
+        "url": "https://www.youtube.com/watch?v=0DsrT2kFurc"
+    },
+    {
+        "Title / Name": "We Need Fewer Heroes: Prioritizing Vulnerabilities Using Observability Data",
+        "Type": "Video (Talk)",
+        "Date": "2025",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "Presentation at Dashlane's 2025 Security Summit by J.-B. Aviat (Staff Security Engineer, Datadog) about leveraging observability data to prioritize and remediate vulnerabilities. Emphasizes democratizing security via Datadog's platform .",
+        "Duration": "",
+        "url": "https://www.dashlane.com/blog/2025-dashlane-security-summit"
+    },
+    {
+        "Title / Name": "Passe-Partout",
+        "Type": "Open-Source Project",
+        "Date": "2011",
+        "Language": "English/French",
+        "Guests": "",
+        "Description / Summary": "Security tool (Passe-Partout meaning Master Key) created by Nicolas Collignon and J.-B. Aviat. Dumps cryptographic keys from running processes (e.g. extract cached SSH private keys from memory) on Unix-like OS . Published as open-source (C language).",
+        "Duration": "",
+        "url": "https://github.com/aviat/passe-partout"
+    },
+    {
+        "Title / Name": "PyMiniRacer",
+        "Type": "Open-Source Project",
+        "Date": "2018",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "A minimal, embedded V8 JavaScript engine bridge for Python, created by Sqreen (co-authored by Jb Aviat). Allows running JavaScript within Python applications. PyMiniRacer is a V8 bridge in Python.  Widely used for embedding JS in Python; later open-sourced and maintained by the community.",
+        "Duration": "",
+        "url": "https://github.com/sqreen/PyMiniRacer"
+    },
+    {
+        "Title / Name": "SaaS CTO Security Checklist",
+        "Type": "Open-Source Project (Guide)",
+        "Date": "2018",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "The SaaS CTO Security Checklist, originally compiled by Sqreen (J.-B. Aviat and team). A comprehensive checklist of security best practices for startups/CTOs to harden their SaaS applications and infrastructure . Open-sourced (700+ stars on GitHub).",
+        "Duration": "",
+        "url": "https://github.com/sqreen/CTOSecurityChecklist"
+    },
+    {
+        "Title / Name": "Personal Website \u2013 aviat.github.io",
+        "Type": "Personal Website",
+        "Date": "2022",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "J.-B. Aviat's personal site containing a brief bio and conference resources. Includes his background (Sqreen co-founder/CTO, now Datadog security engineer) and links to talks (e.g. BSides SF & Lisbon 2022)  .",
+        "Duration": "",
+        "url": "https://aviat.github.io/"
+    },
+    {
+        "Title / Name": "Sqreen: A Journey with Pierre Betouin and Jean-Baptiste Aviat",
+        "Type": "Article (Interview/Feature)",
+        "Date": "2021-02-16",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "In-depth feature by investor Rodolphe Menegaux (Alven) recounting Sqreen's story and success. Describes how co-founders Pierre Betouin and Jb Aviat met after a decade on Apple's Red Team and set out to democratize application security with Sqreen  .",
+        "Duration": "",
+        "url": "https://alven.co/sqreen-a-journey-with-pierre-betouin-and-jean-baptiste-aviat/"
+    },
+    {
+        "Title / Name": "Sqreen raises $14 million for its application security service",
+        "Type": "News Article",
+        "Date": "2019-04-02",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "TechCrunch news article by Romain Dillet on Sqreen's $14M Series A. Describes Sqreen's product (in-app security for web apps and microservices using dynamic instrumentation) and notes Greylock led the round with YC, Alven, and Point Nine participating  .",
+        "Duration": "",
+        "url": "https://techcrunch.com/2019/04/02/sqreen-raises-14-million-for-its-application-security-management-service/"
+    },
+    {
+        "Title / Name": "\u00ab Sqreen l\u00e8ve 14 millions de dollars pour mieux prot\u00e9ger les applications web \u00bb",
+        "Type": "Article (News)",
+        "Date": "2019-04-02",
+        "Language": "French",
+        "Guests": "",
+        "Description / Summary": "FrenchWeb news piece on Sqreen's $14M fundraising. Highlights that the company was founded in 2015 in Paris by Jean-Baptiste Aviat and Pierre Betouin, both ex-Apple security engineers . Describes Sqreen's self-protection (ASM) solution and growth to 500+ clients by 2019.",
+        "Duration": "",
+        "url": "https://www.frenchweb.fr/sqreen-leve-14-millions-de-dollars-pour-developper-la-securite-des-applications-web/353204"
+    },
+    {
+        "Title / Name": "La Pile Podcast \u2013 \u00c9pisode #07: Jean-Baptiste Aviat",
+        "Type": "Podcast Episode",
+        "Date": "2018-10-23",
+        "Language": "French",
+        "Guests": "",
+        "Description / Summary": "Episode of La pile podcast featuring J.-B. Aviat (CTO, Sqreen). In this episode, on invite Jean-Baptiste Aviat\u2026 CTO chez Sqreen. Dans cet \u00e9pisode, il nous donne plus de d\u00e9tails sur Sqreen et on parle ensemble de s\u00e9curit\u00e9. \u2013 i.e. he gives more details about Sqreen and discusses security topics .",
+        "Duration": "",
+        "url": "https://podcasts.apple.com/fr/podcast/la-pile/id1356565442"
+    },
+    {
+        "Title / Name": "Y Combinator Winter 2018 \u2013 Sqreen Profile",
+        "Type": "Accelerator Profile",
+        "Date": "2018",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "Y Combinator alumni profile for Sqreen (YC Winter 2018 batch). Indicates Sqreen's product (application security platform for the modern enterprise) and lists Jean-Baptiste Aviat as Co-founder/CTO and Pierre Betouin as Co-founder/CEO  . Notes: Founded 2015, 120 employees, acquired by Datadog in 2021.",
+        "Duration": "",
+        "url": "https://www.ycombinator.com/companies/sqreen"
+    },
+    {
+        "Title / Name": "Launch HN: Sqreen (YC W18) \u2013 Securing Web Apps",
+        "Type": "Forum Post (HN)",
+        "Date": "2019-06-18",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "Hacker News Launch HN thread introducing Sqreen. The founders (Pierre & J.-B.) explain: Sqreen is an application security platform made for both engineering and security teams. We use dynamic instrumentation libraries that monitor web app execution in real-time\u2026 . Includes community Q&A (64 comments).",
+        "Duration": "",
+        "url": "https://news.ycombinator.com/item?id=20215483"
+    },
+    {
+        "Title / Name": "Solving Race Condition Vulnerabilities (with Tanya Janca)",
+        "Type": "Audio (Talk)",
+        "Date": "2020-10-14",
+        "Language": "English",
+        "Guests": "Tanya Janca",
+        "Description / Summary": "In the inaugural episode, host Jb Aviat sits down with Tanya Janca (founder of WeHackPurple) to discuss her expertise in solving race condition vulnerabilities from her career as a software engineer and AppSec professional. They cover common types of race conditions, real-world examples (e.g. a Starbucks infinite credit bug), and actionable tips for teams to prevent this class of vulnerability  .",
+        "Duration": "39 min",
+        "url": "https://podcasts.apple.com/us/podcast/solving-race-condition-vulnerabilities-with-tanya-janca/id1535238655?i=1000494860194"
+    },
+    {
+        "Title / Name": "Framework Security: the Paved Road Foundation (with Ksenia Peguero)",
+        "Type": "Audio (Talk)",
+        "Date": "2020-11-04",
+        "Language": "English",
+        "Guests": "Ksenia Peguero",
+        "Description / Summary": "Jb Aviat is joined by Ksenia Peguero (Senior Research Lead at Synopsys) for a discussion about how application frameworks impact security . They share tips for upgrading security via frameworks, choosing the best framework for your app, performing framework migrations, and how to spot and fix security blind spots in frameworks .",
+        "Duration": "42 min",
+        "url": "https://podcasts.apple.com/us/podcast/framework-security-with-ksenia-peguero-the-paved-road/id1535238655?i=1000498004053"
+    },
+    {
+        "Title / Name": "Complex System Security: a CISO Perspective (with Emilio Escobar)",
+        "Type": "Audio (Talk)",
+        "Date": "2020-12-16",
+        "Language": "English",
+        "Guests": "Emilio Escobar",
+        "Description / Summary": "Jb Aviat speaks with Datadog CISO Emilio Escobar, whose experience at Hulu and Sony provides a unique perspective on scaling security in complex systems . They discuss team maturity, leadership insights, owning security across an enterprise, and Emilio's journey to becoming the CISO of a public company .",
+        "Duration": "38 min",
+        "url": "https://podcasts.apple.com/us/podcast/complex-system-security-a-ciso-perspective-with-emilio/id1535238655?i=1000502306136"
+    },
+    {
+        "Title / Name": "Serverless Security (with Erica Windisch)",
+        "Type": "Audio (Talk)",
+        "Date": "2021-01-20",
+        "Language": "English",
+        "Guests": "Erica Windisch",
+        "Description / Summary": "Jb Aviat chats with Erica Windisch (New Relic Principal Engineer and AWS Serverless Hero) about all things serverless . They explore why serverless security matters, how to design AppSec when migrating to serverless, scaling application security in serverless environments, and more .",
+        "Duration": "38 min",
+        "url": "https://podcasts.apple.com/us/podcast/serverless-security-with-erica-windisch/id1535238655?i=1000505933975"
+    },
+    {
+        "Title / Name": "Shift Everywhere (with John Steven)",
+        "Type": "Audio (Talk)",
+        "Date": "2021-02-10",
+        "Language": "English",
+        "Guests": "John Steven",
+        "Description / Summary": "Jb Aviat sits down with John Steven (security expert and co-author of the BSIMM study) to discuss fundamental shifts in AppSec . They cover John's BSIMM findings, the move towards shifting everywhere in software security, software-defined security governance, and more best practices for modern AppSec programs .",
+        "Duration": "39 min",
+        "url": "https://podcasts.apple.com/us/podcast/shift-everywhere-with-john-steven/id1535238655?i=1000508436240"
+    },
+    {
+        "Title / Name": "Are Cloud Vendors also Security Vendors? (with Sarah Young)",
+        "Type": "Audio (Talk)",
+        "Date": "2021-05-14",
+        "Language": "English",
+        "Guests": "Sarah Young",
+        "Description / Summary": "Jb Aviat and guest Sarah Young (Azure Security senior program manager) discuss cloud security's evolution and the role of cloud providers in security . The conversation covers how cloud vendor solutions now integrate security features, the increased presence of cloud-native security, and what this means for developers and security teams .",
+        "Duration": "34 min",
+        "url": "https://podcasts.apple.com/us/podcast/are-cloud-vendors-also-security-vendors-with-sarah-young/id1535238655?i=1000521717965"
+    },
+    {
+        "Title / Name": "Developers vs. Security Training (with Jim Manico)",
+        "Type": "Audio (Talk)",
+        "Date": "2021-07-09",
+        "Language": "English",
+        "Guests": "Jim Manico",
+        "Description / Summary": "Host Jb Aviat welcomes Jim Manico (founder of Manicode Security) to discuss why developers should be trained in secure coding . They talk about bridging the gap between developers and AppSec, strategies for teaching secure software practices, and the importance of developer-focused security education in reducing vulnerabilities .",
+        "Duration": "39 min",
+        "url": "https://podcasts.apple.com/us/podcast/developers-vs-security-training-with-jim-manico/id1535238655?i=1000528346139"
+    },
+    {
+        "Title / Name": "Vulnerability Management - The SBOM Way (Cloud Security Lounge Ep. 1)",
+        "Type": "Audio (Talk)",
+        "Date": "2023-04-20",
+        "Language": "English",
+        "Guests": "Steve Springett",
+        "Description / Summary": "Hosts Jean-Baptiste Aviat and Izar Tarandach kick off the series with Steve Springett (ServiceNow Director of Product Security and OWASP CycloneDX lead) . They discuss Software Bills of Materials (SBOMs) \u2013 common use cases, vendor pushback, and why SBOMs alone aren't a silver bullet \u2013 as well as how SBOM formats will evolve to improve vulnerability management .",
+        "Duration": "~49 min",
+        "url": "https://www.youtube.com/watch?v=sC9zE5pGl_Y"
+    },
+    {
+        "Title / Name": "Unblurring The Lines In Cloud Security",
+        "Type": "Audio (Talk)",
+        "Date": "2023-06-16",
+        "Language": "",
+        "Guests": "Chris Farris",
+        "Description / Summary": "Cloud security expert Chris Farris joins Jb Aviat and Izar Tarandach to discuss trends in cloud security and blurring the lines between on-premises and cloud security . They cover insights from the fwd:cloudsec conference, how cloud provider security maturity has improved, and lessons learned from recent cloud security breaches (including a deep dive into the LastPass attack)  .",
+        "Duration": "43 min",
+        "url": "https://www.youtube.com/watch?v=F4vYHN5_Ts8"
+    },
+    {
+        "Title / Name": "Account Takeover Attacks: A Threat Intelligence Viewpoint",
+        "Type": "Audio (Talk)",
+        "Date": "2023-06-21",
+        "Language": "",
+        "Guests": "Zack Allen",
+        "Description / Summary": "Jb Aviat (with co-host Izar) welcomes threat intelligence expert Zack Allen to explore the epidemic of account takeover (ATO) attacks . Zack shares his experience defending organizations against massive ATO campaigns, explains attackers' financial motives and methods (like using leaked credential databases and password cracking tools), and suggests how to detect and protect against ATO threats  .",
+        "Duration": "~50 min",
+        "url": "https://www.youtube.com/watch?v=9fxsHelL5tA"
+    },
+    {
+        "Title / Name": "Vulnerability Prioritization: Looking at CVSSv4",
+        "Type": "Audio (Talk)",
+        "Date": "2023-06-29",
+        "Language": "",
+        "Guests": "Matthew Coles",
+        "Description / Summary": "In this episode, Matthew Coles (product security leader at Bose) joins the Cloud Security Lounge to demystify the upcoming CVSS 4.0 standard  . He guides the hosts through the changes in CVSSv4 and how vulnerability scoring might evolve, offering insights into improving vulnerability prioritization and risk assessment using the new CVSS version  .",
+        "Duration": "~52 min",
+        "url": "https://www.youtube.com/watch?v=AC6x9JvAdn8"
+    },
+    {
+        "Title / Name": "LLMs Need Security Too",
+        "Type": "Audio (Talk)",
+        "Date": "2023-07-14",
+        "Language": "",
+        "Guests": "David Haber",
+        "Description / Summary": "Jean-Baptiste Aviat and Izar Tarandach are joined by David Haber (CEO of Lakera) to discuss the security implications of using Large Language Models in applications . They explore topics like prompt injection attacks and AI model tampering, the OWASP Top 10 for LLMs project, and Lakera's Gandalf LLM security experiment \u2013 highlighting how even AI systems require robust security measures  .",
+        "Duration": "~49 min",
+        "url": "https://www.youtube.com/watch?v=derSmJRZ"
+    }
 ]

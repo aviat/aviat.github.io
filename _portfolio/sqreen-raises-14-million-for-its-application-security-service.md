@@ -5,7 +5,7 @@ type: "News Article"
 date: "02 April 2019"
 language: "English"
 guests: ""
-source_link: "TechCrunch"
+source_link: "https://techcrunch.com/2019/04/02/sqreen-raises-14-million-for-its-application-security-management-service/"
 duration: ""
 ---
 

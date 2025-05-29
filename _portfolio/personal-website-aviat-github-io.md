@@ -5,7 +5,7 @@ type: "Personal Website"
 date: "01 January 2022"
 language: "English"
 guests: ""
-source_link: "Personal Site"
+source_link: "https://aviat.github.io/"
 duration: ""
 ---
 

@@ -5,7 +5,7 @@ type: "Accelerator Profile"
 date: "01 January 2018"
 language: "English"
 guests: ""
-source_link: "YC Directory"
+source_link: "https://www.ycombinator.com/companies/sqreen"
 duration: ""
 ---
 

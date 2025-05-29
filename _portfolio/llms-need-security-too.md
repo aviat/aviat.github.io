@@ -5,7 +5,7 @@ type: "Audio (Talk)"
 date: "14 July 2023"
 language: "English"
 guests: "David Haber"
-source_link: "LLMs Need Security Too"
+source_link: "https://www.youtube.com/watch?v=derSmJRZ"
 duration: "~49 min"
 ---
 

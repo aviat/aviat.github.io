@@ -5,7 +5,7 @@ type: "Audio (Talk)"
 date: "20 January 2021"
 language: "English"
 guests: "Erica Windisch"
-source_link: "Serverless Security with Erica Windisch"
+source_link: "https://podcasts.apple.com/us/podcast/serverless-security-with-erica-windisch/id1535238655?i=1000505933975"
 duration: "38 min"
 ---
 

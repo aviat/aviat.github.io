@@ -5,7 +5,7 @@ type: "Audio (Talk)"
 date: "10 February 2021"
 language: "English"
 guests: "John Steven"
-source_link: "Shift Everywhere with John Steven"
+source_link: "https://podcasts.apple.com/us/podcast/shift-everywhere-with-john-steven/id1535238655?i=1000508436240"
 duration: "39 min"
 ---
 

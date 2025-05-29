@@ -5,7 +5,7 @@ type: "Audio (Talk)"
 date: "16 June 2023"
 language: "English"
 guests: "Chris Farris"
-source_link: "Chris Farris \u2013 Unblurring The Lines In Cloud Security"
+source_link: "https://www.youtube.com/watch?v=F4vYHN5_Ts8"
 duration: "43 min"
 ---
 

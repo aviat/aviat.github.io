@@ -5,7 +5,7 @@ type: "Audio (Talk)"
 date: "14 October 2020"
 language: "English"
 guests: "Tanya Janca"
-source_link: "Solving Race Condition Vulnerabilities \u2013 Tanya Janca"
+source_link: "https://podcasts.apple.com/us/podcast/solving-race-condition-vulnerabilities-with-tanya-janca/id1535238655?i=1000494860194"
 duration: "39 min"
 ---
 

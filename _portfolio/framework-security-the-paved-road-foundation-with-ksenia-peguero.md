@@ -5,7 +5,7 @@ type: "Audio (Talk)"
 date: "04 November 2020"
 language: "English"
 guests: "Ksenia Peguero"
-source_link: "Framework Security with Ksenia Peguero"
+source_link: "https://podcasts.apple.com/us/podcast/framework-security-with-ksenia-peguero-the-paved-road/id1535238655?i=1000498004053"
 duration: "42 min"
 ---
 

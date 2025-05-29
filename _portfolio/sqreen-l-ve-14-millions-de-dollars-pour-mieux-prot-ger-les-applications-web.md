@@ -5,7 +5,7 @@ type: "Article (News)"
 date: "02 April 2019"
 language: "French"
 guests: ""
-source_link: "FrenchWeb"
+source_link: "https://www.frenchweb.fr/sqreen-leve-14-millions-de-dollars-pour-developper-la-securite-des-applications-web/353204"
 duration: ""
 ---
 

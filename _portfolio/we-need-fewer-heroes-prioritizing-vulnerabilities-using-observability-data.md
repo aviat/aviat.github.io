@@ -5,7 +5,7 @@ type: "Video (Talk)"
 date: "01 January 2025"
 language: "English"
 guests: ""
-source_link: "Dashlane Blog"
+source_link: "https://www.dashlane.com/blog/2025-dashlane-security-summit"
 duration: ""
 ---
 

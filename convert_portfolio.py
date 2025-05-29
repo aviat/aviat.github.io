@@ -97,7 +97,7 @@ def create_front_matter(item):
         'date': date,
         'language': language,
         'guests': item['Guests'],
-        'source_link': item['Source Link'],
+        'source_link': item['url'],
         'duration': item['Duration']
     }
 

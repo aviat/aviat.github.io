@@ -5,7 +5,7 @@ type: "Audio (Talk)"
 date: "21 June 2023"
 language: "English"
 guests: "Zack Allen"
-source_link: "Account Takeover Attacks \u2013 Threat Intel Expert's View"
+source_link: "https://www.youtube.com/watch?v=9fxsHelL5tA"
 duration: "~50 min"
 ---
 
