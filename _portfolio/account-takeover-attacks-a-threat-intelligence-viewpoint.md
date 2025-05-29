@@ -2,7 +2,7 @@
 layout: "portfolio-item"
 title: "Account Takeover Attacks: A Threat Intelligence Viewpoint"
 type: "Jun 21, 2023"
-date: ""
+date: "2024-01-01"
 language: ""
 guests: "Zack Allen"
 source_link: "Account Takeover Attacks – Threat Intel Expert’s View"

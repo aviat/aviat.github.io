@@ -2,7 +2,7 @@
 layout: "portfolio-item"
 title: "LLMs Need Security Too"
 type: "Jul 14, 2023"
-date: ""
+date: "2024-01-01"
 language: ""
 guests: "David Haber"
 source_link: "LLMs Need Security Too"

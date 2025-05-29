@@ -2,7 +2,7 @@
 layout: "portfolio-item"
 title: "Unblurring The Lines In Cloud Security"
 type: "Jun 16, 2023"
-date: ""
+date: "2024-01-01"
 language: ""
 guests: "Chris Farris"
 source_link: "Chris Farris – Unblurring The Lines In Cloud Security"
