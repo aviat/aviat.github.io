@@ -1,0 +1,16 @@
+{
+    "resources": [
+        {
+            "category": "cloud_resource",
+            "ccrid": "CCR12345",
+            "cloud_provider": "AWS"
+        },
+        {
+            "category": "host",
+            "hostname": "example-host-01"
+        },
+        {
+            "category": "container_image"
+        }
+    ]
+}

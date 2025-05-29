@@ -1,0 +1,52 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "resources": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "category": {
+                        "type": "string",
+                        "enum": ["cloud_resource", "host", "container_image"]
+                    },
+                    "ccrid": {
+                        "type": "string"
+                    },
+                    "cloud_provider": {
+                        "type": "string"
+                    },
+                    "hostname": {
+                        "type": "string"
+                    }
+                },
+                "required": ["category"],
+                "oneOf": [
+                    {
+                        "properties": {
+                            "category": { "enum": ["cloud_resource"] },
+                            "ccrid": { "type": "string" },
+                            "cloud_provider": { "type": "string" }
+                        },
+                        "required": ["ccrid", "cloud_provider"]
+                    },
+                    {
+                        "properties": {
+                            "category": { "enum": ["host"] },
+                            "hostname": { "type": "string" }
+                        },
+                        "required": ["hostname"]
+                    },
+                    {
+                        "properties": {
+                            "category": { "enum": ["container_image"] }
+                        },
+                        "additionalProperties": false
+                    }
+                ]
+            }
+        }
+    },
+    "required": ["resources"]
+}

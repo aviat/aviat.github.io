@@ -1,0 +1,22 @@
+---
+layout: default
+title: Home
+---
+<section class="hero">
+    <h1>Software Engineer & Entrepreneur</h1>
+    <p class="lead">Former CTO with expertise in application security, cloud infrastructure, and software development.</p>
+</section>
+
+<section class="featured-work">
+    <h2>Featured Work</h2>
+    <div class="portfolio-grid">
+        {% assign sorted_portfolio = site.portfolio | sort: 'date' | reverse %}
+        {% for item in sorted_portfolio limit:3 %}
+        <article class="portfolio-preview">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+            <a href="{{ item.url | relative_url }}" class="read-more">Read More</a>
+        </article>
+        {% endfor %}
+    </div>
+</section> 

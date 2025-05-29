@@ -1,0 +1,23 @@
+# Ignore site build output
+_site/
+
+# Ignore dependencies
+vendor/
+
+# Ignore log files and temp files
+*.log
+*.tmp
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore Ruby specific files
+.bundle/
+.sass-cache/
+
+# Ignore conversion script
+convert_portfolio.rb
+
+# Ignore old backups or drafts
+old/ 

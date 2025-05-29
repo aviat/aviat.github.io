@@ -1,1 +1,37 @@
-theme: jekyll-theme-cayman
+title: Jean-Baptiste Aviat
+description: Software Engineer & Entrepreneur
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  portfolio:
+    output: true
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "portfolio"
+    values:
+      layout: "portfolio-item"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - old
+
+# Disable Sass processing
+sass:
+  load_paths: []
+  style: compressed 
