@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "Sqreen raises $14 million for its application security service"
-type: "News Article"
+type: "Article"
 date: "02 April 2019"
 language: "English"
 guests: ""

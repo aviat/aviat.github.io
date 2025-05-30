@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "LLMs Need Security Too"
-type: "Audio (Talk)"
+type: "Audio"
 date: "14 July 2023"
 language: "English"
 guests: "David Haber"

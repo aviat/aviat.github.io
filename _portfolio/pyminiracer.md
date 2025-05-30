@@ -2,7 +2,7 @@
 layout: "portfolio-item"
 title: "PyMiniRacer"
 type: "Open-Source Project"
-date: "01 January 2018"
+date: "01 February 2018"
 language: "English"
 guests: ""
 source_link: "https://github.com/sqreen/PyMiniRacer"

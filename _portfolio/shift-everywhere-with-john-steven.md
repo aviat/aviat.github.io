@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "Shift Everywhere (with John Steven)"
-type: "Audio (Talk)"
+type: "Audio"
 date: "10 February 2021"
 language: "English"
 guests: "John Steven"

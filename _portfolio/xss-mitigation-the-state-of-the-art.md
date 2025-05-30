@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "XSS Mitigation: The State of the Art"
-type: "Video (Talk)"
+type: "Video"
 date: "05 June 2022"
 language: "English"
 guests: ""

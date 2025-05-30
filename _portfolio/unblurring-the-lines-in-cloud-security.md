@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "Unblurring The Lines In Cloud Security"
-type: "Audio (Talk)"
+type: "Audio"
 date: "16 June 2023"
 language: "English"
 guests: "Chris Farris"

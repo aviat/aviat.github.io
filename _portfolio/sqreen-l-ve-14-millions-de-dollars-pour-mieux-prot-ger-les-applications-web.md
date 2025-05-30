@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "\u00ab Sqreen l\u00e8ve 14 millions de dollars pour mieux prot\u00e9ger les applications web \u00bb"
-type: "Article (News)"
+type: "Article"
 date: "02 April 2019"
 language: "French"
 guests: ""

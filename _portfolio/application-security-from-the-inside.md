@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "Application Security from the Inside"
-type: "Video (Talk)"
+type: "Video"
 date: "22 April 2016"
 language: "English"
 guests: ""

@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "Account Takeover Attacks: A Threat Intelligence Viewpoint"
-type: "Audio (Talk)"
+type: "Audio"
 date: "21 June 2023"
 language: "English"
 guests: "Zack Allen"

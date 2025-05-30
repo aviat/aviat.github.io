@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "Serverless Security (with Erica Windisch)"
-type: "Audio (Talk)"
+type: "Audio"
 date: "20 January 2021"
 language: "English"
 guests: "Erica Windisch"

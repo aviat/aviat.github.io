@@ -1,11 +1,9 @@
 :root {
-    --color-black: #000000;
-    --color-dark-blue: #0a192f;
-    --color-electric-blue: #00f3ff;
-    --color-light-pink: #ffb6c1;
-    --color-white: #ffffff;
-    --color-gray: #333333;
-    --color-light-gray: #1a1a1a;
+    --color-dark-blue: #050A30;
+    --color-navy-blue: #000C66;
+    --color-blue: #0000FF;
+    --color-baby-blue: #7EC8E3;
+    --color-light-pink: #FC2AEC;
 }
 
 * {
@@ -17,7 +15,7 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
-    color: var(--color-light-pink);
+    color: var(--color-blue);
     background-color: var(--color-dark-blue);
 }
 
@@ -29,17 +27,16 @@ body {
 
 /* Header */
 .site-header {
-    background-color: var(--color-black);
+    background-color: var(--color-dark-blue);
     padding: 1rem 0;
     margin-bottom: 2rem;
-    border-bottom: 2px solid var(--color-electric-blue);
+    border-bottom: 2px solid var(--color-baby-blue);
 }
 
 .site-title {
-    color: var(--color-electric-blue);
+    color: var(--color-blue);
     font-size: 2rem;
     margin: 0;
-    text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
 }
 
 .site-nav {
@@ -47,7 +44,7 @@ body {
 }
 
 .site-nav a {
-    color: var(--color-light-pink);
+    color: var(--color-blue);
     text-decoration: none;
     margin-right: 1.5rem;
     font-weight: 500;
@@ -55,8 +52,7 @@ body {
 }
 
 .site-nav a:hover {
-    color: var(--color-electric-blue);
-    text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+    color: var(--color-light-pink);
 }
 
 /* Hero Section */
@@ -64,150 +60,31 @@ body {
     text-align: center;
     padding: 4rem 0;
     margin-bottom: 3rem;
-    background-color: var(--color-black);
+    background-color: #000000;
     border-radius: 8px;
-    border: 1px solid var(--color-electric-blue);
+    border: 1px solid var(--color-baby-blue);
 }
 
 .hero h1 {
-    color: var(--color-electric-blue);
+    color: var(--color-blue);
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
 }
 
 .hero .lead {
-    color: var(--color-light-pink);
+    color: var(--color-blue);
     font-size: 1.2rem;
     max-width: 600px;
     margin: 0 auto;
-}
-
-/* Portfolio List */
-.portfolio-list {
-    margin-top: 2rem;
-}
-
-.portfolio-item {
-    background-color: var(--color-black);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0, 243, 255, 0.1);
-    border: 1px solid var(--color-electric-blue);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.portfolio-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 243, 255, 0.2);
-}
-
-.portfolio-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.portfolio-title-section {
-    flex: 1;
-}
-
-.portfolio-item h2 {
-    margin: 0;
-    font-size: 1.4rem;
-    line-height: 1.3;
-    flex: 1;
-    min-width: 0; /* Prevents flex item from overflowing */
-}
-
-.portfolio-item h2 a {
-    color: var(--color-light-pink);
-    text-decoration: none;
-    transition: color 0.3s ease;
-    border-bottom: 1px solid transparent;
-}
-
-.portfolio-item h2 a:hover {
-    color: var(--color-electric-blue);
-    border-bottom: 1px solid var(--color-electric-blue);
-}
-
-.portfolio-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    align-items: center;
-    justify-content: flex-end;
-    flex-shrink: 0;
-    min-width: 0; /* Prevents flex item from overflowing */
-}
-
-.portfolio-meta span {
-    font-size: 0.85rem;
-    padding: 0.2rem 0.6rem;
-    background-color: var(--color-dark-blue);
-    border-radius: 4px;
-    border: 1px solid var(--color-electric-blue);
-    color: var(--color-light-pink);
-    white-space: nowrap;
-}
-
-.portfolio-meta .type {
-    color: var(--color-electric-blue);
-    font-weight: 500;
-}
-
-.portfolio-source {
-    flex-shrink: 0;
-    margin-top: 0.2rem;
-}
-
-.portfolio-source a {
-    display: inline-block;
-    background-color: var(--color-electric-blue);
-    color: var(--color-black);
-    padding: 0.4rem 0.8rem;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    font-size: 0.9rem;
-    white-space: nowrap;
-}
-
-.portfolio-source a:hover {
-    background-color: var(--color-light-pink);
-    color: var(--color-black);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(255, 182, 193, 0.3);
-}
-
-.portfolio-content {
-    color: var(--color-light-pink);
-    line-height: 1.6;
-    font-size: 0.95rem;
-}
-
-/* Footer */
-.site-footer {
-    background-color: var(--color-black);
-    color: var(--color-light-pink);
-    padding: 2rem 0;
-    margin-top: 3rem;
-    text-align: center;
-    border-top: 2px solid var(--color-electric-blue);
 }
 
 /* Filters */
 .filters {
     margin-bottom: 2rem;
     padding: 1rem;
-    background-color: var(--color-black);
+    background-color: var(--color-navy-blue);
     border-radius: 8px;
-    border: 1px solid var(--color-electric-blue);
+    border: 1px solid var(--color-baby-blue);
 }
 
 .filter-group {
@@ -220,7 +97,7 @@ body {
 
 .filter-label {
     display: block;
-    color: var(--color-electric-blue);
+    color: var(--color-blue);
     font-weight: 500;
     margin-bottom: 0.5rem;
 }
@@ -233,8 +110,8 @@ body {
 
 .filter-btn {
     background-color: var(--color-dark-blue);
-    color: var(--color-light-pink);
-    border: 1px solid var(--color-electric-blue);
+    color: var(--color-blue);
+    border: 1px solid var(--color-baby-blue);
     padding: 0.3rem 0.8rem;
     border-radius: 4px;
     cursor: pointer;
@@ -242,15 +119,128 @@ body {
     transition: all 0.3s ease;
 }
 
-.filter-btn:hover {
-    background-color: var(--color-electric-blue);
-    color: var(--color-black);
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--color-blue);
+    color: var(--color-light-pink);
 }
 
 .filter-btn.active {
-    background-color: var(--color-electric-blue);
-    color: var(--color-black);
     font-weight: 500;
+}
+
+/* Portfolio List */
+.portfolio-list {
+    margin-top: 2rem;
+}
+
+.portfolio-item {
+    background-color: var(--color-navy-blue);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 8px rgba(126, 200, 227, 0.1);
+    border: 1px solid var(--color-baby-blue);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(126, 200, 227, 0.2);
+}
+
+.portfolio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.portfolio-item h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    line-height: 1.3;
+    flex: 1;
+    min-width: 0;
+}
+
+.portfolio-item h2 a {
+    color: var(--color-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.portfolio-item h2 a:hover {
+    color: var(--color-light-pink);
+    border-bottom: 1px solid var(--color-light-pink);
+}
+
+.portfolio-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    min-width: 0;
+}
+
+.portfolio-meta span {
+    font-size: 0.85rem;
+    padding: 0.2rem 0.6rem;
+    background-color: var(--color-dark-blue);
+    border-radius: 4px;
+    border: 1px solid var(--color-baby-blue);
+    color: var(--color-blue);
+    white-space: nowrap;
+}
+
+.portfolio-meta .type {
+    color: var(--color-blue);
+    font-weight: 500;
+}
+
+.portfolio-source {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.portfolio-source a {
+    display: inline-block;
+    background-color: var(--color-baby-blue);
+    color: var(--color-dark-blue);
+    padding: 0.4rem 0.8rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.portfolio-source a:hover {
+    background-color: var(--color-light-pink);
+    color: var(--color-dark-blue);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(255, 182, 193, 0.3);
+}
+
+.portfolio-content {
+    color: var(--color-blue);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--color-dark-blue);
+    color: var(--color-blue);
+    padding: 2rem 0;
+    margin-top: 3rem;
+    text-align: center;
+    border-top: 2px solid var(--color-baby-blue);
 }
 
 /* Responsive Design */

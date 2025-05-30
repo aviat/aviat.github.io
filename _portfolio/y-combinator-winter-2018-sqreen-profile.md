@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "Y Combinator Winter 2018 \u2013 Sqreen Profile"
-type: "Accelerator Profile"
+type: "YC Alumni"
 date: "01 January 2018"
 language: "English"
 guests: ""

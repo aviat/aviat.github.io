@@ -13,7 +13,7 @@
             <h1 class="site-title">{{ site.title }}</h1>
             <nav class="site-nav">
                 <a href="{{ '/' | relative_url }}">Home</a>
-                <a href="{{ '/portfolio' | relative_url }}">Portfolio</a>
+                <a href="{{ '/contact' | relative_url }}">Contact</a>
             </nav>
         </div>
     </header>
@@ -23,11 +23,5 @@
             {{ content }}
         </div>
     </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
-        </div>
-    </footer>
 </body>
 </html> 

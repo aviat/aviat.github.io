@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "Prevent Business Logic Attacks Using Dynamic Instrumentation"
-type: "Video (Conference Talk)"
+type: "Video"
 date: "01 October 2018"
 language: "English"
 guests: ""

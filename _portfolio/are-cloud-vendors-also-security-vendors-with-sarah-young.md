@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "Are Cloud Vendors also Security Vendors? (with Sarah Young)"
-type: "Audio (Talk)"
+type: "Audio"
 date: "14 May 2021"
 language: "English"
 guests: "Sarah Young"

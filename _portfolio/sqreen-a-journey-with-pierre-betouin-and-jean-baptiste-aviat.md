@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "Sqreen: A Journey with Pierre Betouin and Jean-Baptiste Aviat"
-type: "Article (Interview/Feature)"
+type: "Article"
 date: "16 February 2021"
 language: "English"
 guests: ""

@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "Solving Race Condition Vulnerabilities (with Tanya Janca)"
-type: "Audio (Talk)"
+type: "Audio"
 date: "14 October 2020"
 language: "English"
 guests: "Tanya Janca"

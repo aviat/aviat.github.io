@@ -1,8 +1,8 @@
 ---
 layout: "portfolio-item"
 title: "Writing a C Python Extension in 2017"
-type: "Video (Talk)"
-date: "01 January 2017"
+type: "Video"
+date: "23 May 2017"
 language: "English"
 guests: ""
 source_link: "https://www.youtube.com/watch?v=SD_QllcV-yo"

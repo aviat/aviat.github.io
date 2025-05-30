@@ -1,7 +1,7 @@
 [
     {
         "Title / Name": "Application Security from the Inside",
-        "Type": "Video (Talk)",
+        "Type": "Video",
         "Date": "2016-04-22",
         "Language": "English",
         "Guests": "",
@@ -11,7 +11,7 @@
     },
     {
         "Title / Name": "Writing a C Python Extension in 2017",
-        "Type": "Video (Talk)",
+        "Type": "Video",
         "Date": "2017-05-23",
         "Language": "English",
         "Guests": "",
@@ -21,7 +21,7 @@
     },
     {
         "Title / Name": "Scaling APIs from 0 to 40k RPM",
-        "Type": "Video (Talk)",
+        "Type": "Video",
         "Date": "2017-09-27",
         "Language": "English",
         "Guests": "",
@@ -31,7 +31,7 @@
     },
     {
         "Title / Name": "Onboarding Developers & Setting Them Up for Success",
-        "Type": "Video (Talk)",
+        "Type": "Video",
         "Date": "2019-09",
         "Language": "English",
         "Guests": "",
@@ -41,7 +41,7 @@
     },
     {
         "Title / Name": "Prevent Business Logic Attacks Using Dynamic Instrumentation",
-        "Type": "Video (Conference Talk)",
+        "Type": "Video",
         "Date": "2018-10",
         "Language": "English",
         "Guests": "",
@@ -51,7 +51,7 @@
     },
     {
         "Title / Name": "XSS Mitigation: The State of the Art",
-        "Type": "Video (Talk)",
+        "Type": "Video",
         "Date": "2022-06-05",
         "Language": "English",
         "Guests": "",
@@ -61,7 +61,7 @@
     },
     {
         "Title / Name": "Pentesting on Steroids Using Performance Monitoring",
-        "Type": "Video (Talk)",
+        "Type": "Video",
         "Date": "2022-11-10",
         "Language": "English",
         "Guests": "",
@@ -71,7 +71,7 @@
     },
     {
         "Title / Name": "LLMs Need Security Too (Panel)",
-        "Type": "Video (Panel Discussion)",
+        "Type": "Video",
         "Date": "2023-07-14",
         "Language": "English",
         "Guests": "",
@@ -81,7 +81,7 @@
     },
     {
         "Title / Name": "We Need Fewer Heroes: Prioritizing Vulnerabilities Using Observability Data",
-        "Type": "Video (Talk)",
+        "Type": "Video",
         "Date": "2025-04-01",
         "Language": "English",
         "Guests": "",
@@ -121,7 +121,7 @@
     },
     {
         "Title / Name": "Sqreen: A Journey with Pierre Betouin and Jean-Baptiste Aviat",
-        "Type": "Article (Interview/Feature)",
+        "Type": "Article",
         "Date": "2021-02-16",
         "Language": "English",
         "Guests": "",
@@ -131,7 +131,7 @@
     },
     {
         "Title / Name": "Sqreen raises $14 million for its application security service",
-        "Type": "News Article",
+        "Type": "Article",
         "Date": "2019-04-02",
         "Language": "English",
         "Guests": "",
@@ -141,7 +141,7 @@
     },
     {
         "Title / Name": "\u00ab Sqreen l\u00e8ve 14 millions de dollars pour mieux prot\u00e9ger les applications web \u00bb",
-        "Type": "Article (News)",
+        "Type": "Article",
         "Date": "2019-04-02",
         "Language": "French",
         "Guests": "",
@@ -151,7 +151,7 @@
     },
     {
         "Title / Name": "La Pile Podcast \u2013 \u00c9pisode #07: Jean-Baptiste Aviat",
-        "Type": "Podcast Episode",
+        "Type": "Podcast guest",
         "Date": "2018-10-23",
         "Language": "French",
         "Guests": "",
@@ -161,7 +161,7 @@
     },
     {
         "Title / Name": "Y Combinator Winter 2018 \u2013 Sqreen Profile",
-        "Type": "Accelerator Profile",
+        "Type": "YC Alumni",
         "Date": "2018-01-01",
         "Language": "English",
         "Guests": "",
@@ -171,7 +171,7 @@
     },
     {
         "Title / Name": "Launch HN: Sqreen (YC W18) \u2013 Securing Web Apps",
-        "Type": "Forum Post (HN)",
+        "Type": "Hacker News post",
         "Date": "2019-06-18",
         "Language": "English",
         "Guests": "",
@@ -181,7 +181,7 @@
     },
     {
         "Title / Name": "Solving Race Condition Vulnerabilities (with Tanya Janca)",
-        "Type": "Audio (Talk)",
+        "Type": "Audio",
         "Date": "2020-10-14",
         "Language": "English",
         "Guests": "Tanya Janca",
@@ -191,7 +191,7 @@
     },
     {
         "Title / Name": "Framework Security: the Paved Road Foundation (with Ksenia Peguero)",
-        "Type": "Audio (Talk)",
+        "Type": "Audio",
         "Date": "2020-11-04",
         "Language": "English",
         "Guests": "Ksenia Peguero",
@@ -201,7 +201,7 @@
     },
     {
         "Title / Name": "Complex System Security: a CISO Perspective (with Emilio Escobar)",
-        "Type": "Audio (Talk)",
+        "Type": "Audio",
         "Date": "2020-12-16",
         "Language": "English",
         "Guests": "Emilio Escobar",
@@ -211,7 +211,7 @@
     },
     {
         "Title / Name": "Serverless Security (with Erica Windisch)",
-        "Type": "Audio (Talk)",
+        "Type": "Audio",
         "Date": "2021-01-20",
         "Language": "English",
         "Guests": "Erica Windisch",
@@ -221,7 +221,7 @@
     },
     {
         "Title / Name": "Shift Everywhere (with John Steven)",
-        "Type": "Audio (Talk)",
+        "Type": "Audio",
         "Date": "2021-02-10",
         "Language": "English",
         "Guests": "John Steven",
@@ -231,7 +231,7 @@
     },
     {
         "Title / Name": "Are Cloud Vendors also Security Vendors? (with Sarah Young)",
-        "Type": "Audio (Talk)",
+        "Type": "Audio",
         "Date": "2021-05-14",
         "Language": "English",
         "Guests": "Sarah Young",
@@ -241,7 +241,7 @@
     },
     {
         "Title / Name": "Developers vs. Security Training (with Jim Manico)",
-        "Type": "Audio (Talk)",
+        "Type": "Audio",
         "Date": "2021-07-09",
         "Language": "English",
         "Guests": "Jim Manico",
@@ -251,7 +251,7 @@
     },
     {
         "Title / Name": "Vulnerability Management - The SBOM Way (Cloud Security Lounge Ep. 1)",
-        "Type": "Audio (Talk)",
+        "Type": "Audio",
         "Date": "2023-04-20",
         "Language": "English",
         "Guests": "Steve Springett",
@@ -261,7 +261,7 @@
     },
     {
         "Title / Name": "Unblurring The Lines In Cloud Security",
-        "Type": "Audio (Talk)",
+        "Type": "Audio",
         "Date": "2023-06-16",
         "Language": "",
         "Guests": "Chris Farris",
@@ -271,7 +271,7 @@
     },
     {
         "Title / Name": "Account Takeover Attacks: A Threat Intelligence Viewpoint",
-        "Type": "Audio (Talk)",
+        "Type": "Audio",
         "Date": "2023-06-21",
         "Language": "",
         "Guests": "Zack Allen",
@@ -281,7 +281,7 @@
     },
     {
         "Title / Name": "Vulnerability Prioritization: Looking at CVSSv4",
-        "Type": "Audio (Talk)",
+        "Type": "Audio",
         "Date": "2023-06-29",
         "Language": "",
         "Guests": "Matthew Coles",
@@ -291,7 +291,7 @@
     },
     {
         "Title / Name": "LLMs Need Security Too",
-        "Type": "Audio (Talk)",
+        "Type": "Audio",
         "Date": "2023-07-14",
         "Language": "",
         "Guests": "David Haber",

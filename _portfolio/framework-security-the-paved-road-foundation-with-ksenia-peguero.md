@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "Framework Security: the Paved Road Foundation (with Ksenia Peguero)"
-type: "Audio (Talk)"
+type: "Audio"
 date: "04 November 2020"
 language: "English"
 guests: "Ksenia Peguero"

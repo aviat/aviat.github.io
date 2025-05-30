@@ -1,12 +1,12 @@
 ---
 layout: "portfolio-item"
 title: "We Need Fewer Heroes: Prioritizing Vulnerabilities Using Observability Data"
-type: "Video (Talk)"
-date: "01 January 2025"
+type: "Video"
+date: "01 April 2025"
 language: "English"
 guests: ""
 source_link: "https://www.dashlane.com/blog/2025-dashlane-security-summit"
 duration: ""
 ---
 
-Presentation at Dashlane's 2025 Security Summit by J.-B. Aviat (Staff Security Engineer, Datadog) about leveraging observability data to prioritize and remediate vulnerabilities. Emphasizes democratizing security via Datadog's platform .
+Presentation at Dashlane's 2025 Security Summit by Jb Aviat (Staff Security Engineer, Datadog) about leveraging observability data to prioritize and remediate vulnerabilities. Emphasizes democratizing security via Datadog's platform .

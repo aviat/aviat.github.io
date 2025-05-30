@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "Developers vs. Security Training (with Jim Manico)"
-type: "Audio (Talk)"
+type: "Audio"
 date: "09 July 2021"
 language: "English"
 guests: "Jim Manico"

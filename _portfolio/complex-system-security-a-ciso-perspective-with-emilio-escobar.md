@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "Complex System Security: a CISO Perspective (with Emilio Escobar)"
-type: "Audio (Talk)"
+type: "Audio"
 date: "16 December 2020"
 language: "English"
 guests: "Emilio Escobar"
