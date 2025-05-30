@@ -74,8 +74,8 @@
         "Type": "Video",
         "Date": "2023-07-14",
         "Language": "English",
-        "Guests": "",
-        "Description / Summary": "All-star panel featuring Jb Aviat (Datadog) discussing how to secure applications using Large Language Models. Panelists (incl. Datadog and Lakera experts) share insights on emerging AI threats and defenses .",
+        "Guests": "David Haber",
+        "Description / Summary": "Jean-Baptiste Aviat and Izar Tarandach are joined by David Haber (CEO of Lakera) to discuss the security implications of using Large Language Models in applications . They explore topics like prompt injection attacks and AI model tampering, the OWASP Top 10 for LLMs project, and Lakera's Gandalf LLM security experiment \u2013 highlighting how even AI systems require robust security measures  .",
         "Duration": "",
         "url": "https://www.youtube.com/watch?v=0DsrT2kFurc"
     },
@@ -288,15 +288,5 @@
         "Description / Summary": "In this episode, Matthew Coles (product security leader at Bose) joins the Cloud Security Lounge to demystify the upcoming CVSS 4.0 standard  . He guides the hosts through the changes in CVSSv4 and how vulnerability scoring might evolve, offering insights into improving vulnerability prioritization and risk assessment using the new CVSS version  .",
         "Duration": "~52 min",
         "url": "https://www.youtube.com/watch?v=AC6x9JvAdn8"
-    },
-    {
-        "Title / Name": "LLMs Need Security Too",
-        "Type": "Audio",
-        "Date": "2023-07-14",
-        "Language": "",
-        "Guests": "David Haber",
-        "Description / Summary": "Jean-Baptiste Aviat and Izar Tarandach are joined by David Haber (CEO of Lakera) to discuss the security implications of using Large Language Models in applications . They explore topics like prompt injection attacks and AI model tampering, the OWASP Top 10 for LLMs project, and Lakera's Gandalf LLM security experiment \u2013 highlighting how even AI systems require robust security measures  .",
-        "Duration": "~49 min",
-        "url": "https://www.youtube.com/watch?v=derSmJRZ"
     }
 ]
