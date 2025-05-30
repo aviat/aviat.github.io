@@ -7,6 +7,7 @@ language: "English"
 guests: ""
 source_link: "https://www.youtube.com/watch?v=EaEZOJ1-rbs"
 duration: ""
+video_id: "EaEZOJ1-rbs"
 ---
 
 Talk at The Family (Paris) where Jb Aviat (CTO, Sqreen) shares best practices for onboarding new developers. Emphasizes avoiding burnout and setting up devs for success .

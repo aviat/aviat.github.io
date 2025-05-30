@@ -47,7 +47,7 @@
         "Guests": "",
         "Description / Summary": "Conference talk (OWASP AppSec USA 2018 and SysAdmin Days 2018) demonstrating how to instrument apps to prevent complex business logic attacks beyond the OWASP Top 10  . Introduces a security automation tool using in-app sensors and runtime analysis.",
         "Duration": "",
-        "url": "https://www.youtube.com/watch?v=7L-bj2SKaEU"
+        "url": "https://www.youtube.com/watch?v=Bttl22BJQ1Y"
     },
     {
         "Title / Name": "XSS Mitigation: The State of the Art",
@@ -70,7 +70,7 @@
         "url": "https://www.youtube.com/watch?v=gJPkOqXydjY"
     },
     {
-        "Title / Name": "LLMs Need Security Too (Panel)",
+        "Title / Name": "LLMs Need Security Too",
         "Type": "Video",
         "Date": "2023-07-14",
         "Language": "English",
@@ -87,7 +87,7 @@
         "Guests": "",
         "Description / Summary": "Presentation at Dashlane's 2025 Security Summit by Jb Aviat (Staff Security Engineer, Datadog) about leveraging observability data to prioritize and remediate vulnerabilities. Emphasizes democratizing security via Datadog's platform .",
         "Duration": "",
-        "url": "https://www.dashlane.com/blog/2025-dashlane-security-summit"
+        "url": "https://youtu.be/DW6mivFdUJc"
     },
     {
         "Title / Name": "Passe-Partout",
@@ -261,27 +261,27 @@
     },
     {
         "Title / Name": "Unblurring The Lines In Cloud Security",
-        "Type": "Audio",
+        "Type": "Video",
         "Date": "2023-06-16",
         "Language": "",
         "Guests": "Chris Farris",
         "Description / Summary": "Cloud security expert Chris Farris joins Jb Aviat and Izar Tarandach to discuss trends in cloud security and blurring the lines between on-premises and cloud security . They cover insights from the fwd:cloudsec conference, how cloud provider security maturity has improved, and lessons learned from recent cloud security breaches (including a deep dive into the LastPass attack)  .",
         "Duration": "43 min",
-        "url": "https://www.youtube.com/watch?v=F4vYHN5_Ts8"
+        "url": "https://www.youtube.com/watch?v=swoT2t3CmfY"
     },
     {
         "Title / Name": "Account Takeover Attacks: A Threat Intelligence Viewpoint",
-        "Type": "Audio",
+        "Type": "Video",
         "Date": "2023-06-21",
         "Language": "",
         "Guests": "Zack Allen",
         "Description / Summary": "Jb Aviat (with co-host Izar) welcomes threat intelligence expert Zack Allen to explore the epidemic of account takeover (ATO) attacks . Zack shares his experience defending organizations against massive ATO campaigns, explains attackers' financial motives and methods (like using leaked credential databases and password cracking tools), and suggests how to detect and protect against ATO threats  .",
         "Duration": "~50 min",
-        "url": "https://www.youtube.com/watch?v=9fxsHelL5tA"
+        "url": "https://www.youtube.com/watch?v=w3DkzB4b3dM"
     },
     {
         "Title / Name": "Vulnerability Prioritization: Looking at CVSSv4",
-        "Type": "Audio",
+        "Type": "Video",
         "Date": "2023-06-29",
         "Language": "",
         "Guests": "Matthew Coles",

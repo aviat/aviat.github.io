@@ -56,6 +56,44 @@ def normalize_date(date_str):
     except ValueError as e:
         raise ValueError("Invalid date format or value") from e
 
+def extract_youtube_id(url):
+    """Extract YouTube video ID from a URL.
+    
+    Args:
+        url (str): YouTube URL
+        
+    Returns:
+        str: YouTube video ID or None if not found
+        
+    >>> extract_youtube_id('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+    'dQw4w9WgXcQ'
+    >>> extract_youtube_id('https://youtu.be/dQw4w9WgXcQ')
+    'dQw4w9WgXcQ'
+    >>> extract_youtube_id('https://www.youtube.com/embed/dQw4w9WgXcQ')
+    'dQw4w9WgXcQ'
+    >>> extract_youtube_id('https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=123s')
+    'dQw4w9WgXcQ'
+    >>> extract_youtube_id('https://example.com')
+    >>> extract_youtube_id(None)
+    >>> extract_youtube_id('')
+    """
+    if not url:
+        return None
+        
+    # Match patterns like:
+    # - https://www.youtube.com/watch?v=VIDEO_ID
+    # - https://youtu.be/VIDEO_ID
+    # - https://www.youtube.com/embed/VIDEO_ID
+    patterns = [
+        r'(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)',
+    ]
+    
+    for pattern in patterns:
+        match = re.search(pattern, url)
+        if match:
+            return match.group(1)
+    return None
+
 def create_front_matter(item):
     """Create the front matter dictionary for a portfolio item.
     
@@ -90,7 +128,12 @@ def create_front_matter(item):
     elif language not in ['English', 'French']:
         raise ValueError(f"language: must be 'English' or 'French', got '{language}'")
     
-    return {
+    # Extract YouTube video ID if URL is present
+    video_id = None
+    if item.get('url'):
+        video_id = extract_youtube_id(item['url'])
+    
+    front_matter = {
         'layout': 'portfolio-item',
         'title': item['Title / Name'],
         'type': item['Type'],
@@ -100,6 +143,12 @@ def create_front_matter(item):
         'source_link': item['url'],
         'duration': item['Duration']
     }
+    
+    # Add video_id to front matter if found
+    if video_id:
+        front_matter['video_id'] = video_id
+    
+    return front_matter
 
 def write_portfolio_file(filename, front_matter, content):
     """Write a portfolio item to a markdown file."""
