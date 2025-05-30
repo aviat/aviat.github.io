@@ -1,9 +1,5 @@
 :root {
-    --color-dark-blue: #050A30;
-    --color-navy-blue: #000C66;
-    --color-blue: #0000FF;
-    --color-baby-blue: #7EC8E3;
-    --color-light-pink: #FC2AEC;
+
 }
 
 * {
@@ -60,7 +56,6 @@ body {
     text-align: center;
     padding: 4rem 0;
     margin-bottom: 3rem;
-    background-color: #000000;
     border-radius: 8px;
     border: 1px solid var(--color-baby-blue);
 }
