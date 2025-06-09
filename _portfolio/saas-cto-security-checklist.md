@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "SaaS CTO Security Checklist"
-type: "Open-Source Project (Guide)"
+type: "Open-Source Project"
 date: "01 March 2018"
 language: "English"
 guests: ""
