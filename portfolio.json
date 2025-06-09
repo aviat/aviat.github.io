@@ -308,16 +308,5 @@
         "Description / Summary": "Skyrack disassembles binaries for most platforms on any CPU-reachable offset, stores their assembly in a SQlite database, and enables the user to search for it. A tiny DSL enables to write configurations files that Skyrack can compile in actual payloads, to be injected for instance during a buffer overflow exploitation.",
         "Duration": "",
         "url": "https://github.com/aviat/skyrack"
-    },
-    {
-        "Title / Name": "Minimal, modern embedded V8 for Python.",
-        "Type": "Open-Source Project",
-        "Date": "2009-10-15",
-        "Language": "English",
-        "Guests": "",
-        "Description / Summary": "Minimal, modern embedded V8 for Python. Features: latest ECMAScript support, Web Assembly support, Unicode support, thread safe, re-usable contexts. MiniRacer can be easily used by Django or Flask projects to minify assets, run babel or WASM modules. Now deprecated in favor of https://github.com/bpcreech/PyMiniRacer",
-        "Duration": "",
-        "url": "https://github.com/sqreen/pyminiracer"
     }
-
 ]
