@@ -119,4 +119,50 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-</script> 
+</script>
+
+<style>
+.portfolio-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.meta-content {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.video-container {
+    position: relative;
+    width: 50%;
+    min-width: 300px;
+    height: 0;
+    padding-bottom: 28.125%; /* 16:9 Aspect Ratio for half width */
+    margin: 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .portfolio-meta {
+        flex-direction: column;
+    }
+    
+    .video-container {
+        width: 100%;
+        padding-bottom: 56.25%; /* Full width 16:9 Aspect Ratio */
+        margin-top: 1rem;
+    }
+}
+</style> 

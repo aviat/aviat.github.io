@@ -111,7 +111,7 @@
     },
     {
         "Title / Name": "SaaS CTO Security Checklist",
-        "Type": "Open-Source Project (Guide)",
+        "Type": "Open-Source Project",
         "Date": "2018-03",
         "Language": "English",
         "Guests": "",
@@ -288,5 +288,36 @@
         "Description / Summary": "In this episode, Matthew Coles (product security leader at Bose) joins the Cloud Security Lounge to demystify the upcoming CVSS 4.0 standard  . He guides the hosts through the changes in CVSSv4 and how vulnerability scoring might evolve, offering insights into improving vulnerability prioritization and risk assessment using the new CVSS version  .",
         "Duration": "~52 min",
         "url": "https://www.youtube.com/watch?v=AC6x9JvAdn8"
+    },
+    {
+        "Title / Name": "RASP 101: Staying Safe With Runtime Application Self-Protection",
+        "Type": "Article",
+        "Date": "2020-09-25",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "The dream of RASP is to empower applications to protect themselves. How close do current implementations get to living the dream? Here's what to know.",
+        "Duration": "",
+        "url": "https://www.darkreading.com/application-security/rasp-101-staying-safe-with-runtime-application-self-protection"
+    },
+    {
+        "Title / Name": "Skyrack helps generating ROP payloads",
+        "Type": "Open-Source Project",
+        "Date": "2010-10-15",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "Skyrack disassembles binaries for most platforms on any CPU-reachable offset, stores their assembly in a SQlite database, and enables the user to search for it. A tiny DSL enables to write configurations files that Skyrack can compile in actual payloads, to be injected for instance during a buffer overflow exploitation.",
+        "Duration": "",
+        "url": "https://github.com/aviat/skyrack"
+    },
+    {
+        "Title / Name": "Minimal, modern embedded V8 for Python.",
+        "Type": "Open-Source Project",
+        "Date": "2009-10-15",
+        "Language": "English",
+        "Guests": "",
+        "Description / Summary": "Minimal, modern embedded V8 for Python. Features: latest ECMAScript support, Web Assembly support, Unicode support, thread safe, re-usable contexts. MiniRacer can be easily used by Django or Flask projects to minify assets, run babel or WASM modules. Now deprecated in favor of https://github.com/bpcreech/PyMiniRacer",
+        "Duration": "",
+        "url": "https://github.com/sqreen/pyminiracer"
     }
+
 ]
