@@ -308,5 +308,15 @@
         "Description / Summary": "Skyrack disassembles binaries for most platforms on any CPU-reachable offset, stores their assembly in a SQlite database, and enables the user to search for it. A tiny DSL enables to write configurations files that Skyrack can compile in actual payloads, to be injected for instance during a buffer overflow exploitation.",
         "Duration": "",
         "url": "https://github.com/aviat/skyrack"
+    },
+    {
+        "Title / Name": "Sqreen presentation at the RSA Innovation Sandbox",
+        "Type": "Video",
+        "Date": "2020-02-24",
+        "Language": "English",
+        "Guests": "",
+        "Duration": "",
+        "Description / Summary": "Sqreen was finalist at the RSAC Innovation Sandbox Contest competition. The competition calls on the most promising young companies in cybersecurity to showcase their transformative technologies to a panel of judges and live audience at RSA Conference 2020 in San Francisco.",
+        "url": "https://www.youtube.com/watch?v=S1zRNMMsavc"
     }
 ]
