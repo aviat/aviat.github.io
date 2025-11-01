@@ -18,5 +18,5 @@ la pression, ainsi qu'un afficheur de quelques pixels. Ces éléments se branche
 La semaine prochaine, nous allons commencer les choses sérieuses en construisant un premier robot et en
 essayant de lui faire résoudre des épreuves.
 
-![Capture d'écran de l'application Spike](assets/img/lego_seance_1.jpeg)
+![Capture d'écran de l'application Spike](/assets/img/lego_seance_1.jpeg)
 
