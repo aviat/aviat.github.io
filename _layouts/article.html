@@ -21,8 +21,17 @@
 
     <main class="site-content">
         <div class="container">
-            {{ content }}
+            <article class="article-detail">
+                <a href="{{ '/articles' | relative_url }}" class="back-link">← Back to Articles</a>
+                <h1 class="article-title">{{ page.title }}</h1>
+                {% if page.description %}
+                <p class="article-description">{{ page.description }}</p>
+                {% endif %}
+                <div class="article-body">
+                    {{ content }}
+                </div>
+            </article>
         </div>
     </main>
 </body>
-</html> 
+</html>

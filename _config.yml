@@ -31,6 +31,14 @@ exclude:
   - .git
   - old
 
+# Defaults for articles
+defaults:
+  - scope:
+      path: "articles"
+      type: "pages"
+    values:
+      layout: "article"
+
 # Disable Sass processing
 sass:
   load_paths: []
