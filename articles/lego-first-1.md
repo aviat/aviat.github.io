@@ -1,6 +1,6 @@
 ---
-title: "Lego FIRST Robots competition - semaine 1"
-description: "Nous avons termine la construction des epreuves et decouvert les capteurs."
+title: "LEGO FIRST Robotic competition - week 1"
+description: "Semaines 1 & 2 : nous avons terminé la construction des épreuves et découvert les capteurs."
 ---
 
 [LEGO first](https://fr.wikipedia.org/wiki/First_Lego_League) est un concours pour des enfants de 9 ans et plus dont le but est de programmer un robot pour accomplir des missions, en encourageant les enfants à suivre une démarche scientifique expérimentale. La programmation s'étale sur plusieurs séances, souvent au long de l'année scolaire (pour nous certains week-end !).
