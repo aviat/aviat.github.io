@@ -3,7 +3,14 @@ title: "LEGO FIRST Robotic competition - week 3"
 description: "Semaine 3 : montage et programmation d'un premier robot"
 ---
 
-Cette semaine nous avons construit un premier robot simple, dont les instructions sont fournies dans l'application Spike. Nous avons réussi à le programmer pour suivre un parcours pré-déterminé ([vidéo](https://youtu.be/jJKjfuBVTCk)).
+Cette semaine nous avons construit un premier robot simple, dont les instructions sont fournies dans l'application Spike. Nous avons réussi à le programmer pour suivre un parcours pré-déterminé :
+<style> 
+  iframe { 
+    display: block; 
+    margin: 0 auto; 
+  } 
+</style> 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jJKjfuBVTCk?si=g-qoZON-ykOvobUf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Le robot se compose de 2 roues, chacune sur un moteur. L'équilibre se fait non pas avec des roues supplémentaires mais avec une bille. L'utilisation d'une bille permet au robot de tourner plus librement dans tous les axes, alors que des roues opposeraient plus de frottement.
 
