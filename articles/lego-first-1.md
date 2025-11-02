@@ -1,5 +1,5 @@
 ---
-title: "LEGO FIRST Robotic competition - week 1"
+title: "LEGO FIRST Robotic competition - weeks 1 & 2"
 description: "Semaines 1 & 2 : nous avons terminé la construction des épreuves et découvert les capteurs."
 ---
 
@@ -18,5 +18,5 @@ la pression, ainsi qu'un afficheur de quelques pixels. Ces éléments se branche
 La semaine prochaine, nous allons commencer les choses sérieuses en construisant un premier robot et en
 essayant de lui faire résoudre des épreuves.
 
-![Capture d'écran de l'application Spike](/assets/img/lego_seance_1.jpeg)
+![Capture d'écran d'un programme de l'application Spike pour changer l'afficheur en fonction de la couleur de brique détectée](/assets/img/lego_seance_1.jpeg)
 
