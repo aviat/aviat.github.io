@@ -1,6 +1,7 @@
 ---
 title: "Serverless security: how do you protect what you aren't able to see?"
 description: "Serverless security is a challenge, given the lack of visibility and evolving technology. Learn more about serverless and how to secure it"
+published: false
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 title: "Scaling security in a high growth company: our journey at Sqreen"
 description: "Scaling security as your company grows is a challenge. Learn how Sqreen approaches prioritizing security efforts and our next steps."
+published: false
 ---
 
 

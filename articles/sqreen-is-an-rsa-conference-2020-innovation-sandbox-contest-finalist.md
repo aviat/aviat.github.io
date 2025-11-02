@@ -1,6 +1,7 @@
 ---
 title: "Sqreen is an RSA Conference 2020 Innovation Sandbox Contest finalist"
 description: "We're honored to share that Sqreen has been named one of the ten RSA Conference 2020 Innovation Sandbox Contest finalists."
+published: false
 ---
 
 

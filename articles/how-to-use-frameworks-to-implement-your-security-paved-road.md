@@ -1,6 +1,7 @@
 ---
 title: "How to use frameworks to implement your Security Paved Road"
 description: "A practical guide on implementing security frameworks effectively"
+published: false
 ---
 
 [![](https://web.archive.org/web/20230604000803im_/https://i0.wp.com/blog.sqreen.com/wp-content/uploads/2020/12/Frameworks-for-your-security-paved-road-1.png?fit=820%2C312&ssl=1)](https://web.archive.org/web/20230604000803/https://i0.wp.com/blog.sqreen.com/wp-content/uploads/2020/12/Frameworks-for-your-security-paved-road-1.png?fit=2379%2C905&ssl=1)[**](https://web.archive.org/web/20230604000803/https://twitter.com/share?&text=How%20to%20use%20frameworks%20to%20implement%20your%20Security%20Paved%20Road&url=https://blog.sqreen.com/how-to-use-frameworks-to-implement-your-security-paved-road/)[**](https://web.archive.org/web/20230604000803/https://www.linkedin.com/shareArticle?mini=true&url=https://blog.sqreen.com/how-to-use-frameworks-to-implement-your-security-paved-road/)[**](https://web.archive.org/web/20230604000803/mailto:/?subject=How%20to%20use%20frameworks%20to%20implement%20your%20Security%20Paved%20Road&body=How%20to%20use%20frameworks%20to%20implement%20your%20Security%20Paved%20Road%20https://blog.sqreen.com/how-to-use-frameworks-to-implement-your-security-paved-road/)

@@ -1,6 +1,7 @@
 ---
-title: "LEGO FIRST Robotic competition - week 3"
-description: "Semaine 3 : montage et programmation d'un premier robot"
+title: "FIRST LEGO LEAGUE Robotic competition - week 3"
+description: "Semaine 3 : montage et programmation d'un premier robot."
+date: 2025-11-01
 ---
 
 Cette semaine nous avons construit un premier robot simple. Nous avons réussi à le programmer pour suivre un parcours prédéterminé :

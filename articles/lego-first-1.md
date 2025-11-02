@@ -1,6 +1,7 @@
 ---
-title: "LEGO FIRST Robotic competition - weeks 1 & 2"
+title: "FIRST LEGO LEAGUE Robotic competition - weeks 1 & 2"
 description: "Semaines 1 & 2 : nous avons terminé la construction des épreuves et découvert les capteurs."
+date: 2025-10-19
 ---
 
 [FIRST LEGO League](https://fr.wikipedia.org/wiki/First_Lego_League) est un concours pour des enfants de 9 ans et plus dont le but est de programmer un robot pour accomplir des missions, en encourageant les enfants à suivre une démarche scientifique expérimentale. La programmation s'étale sur plusieurs séances, souvent au long de l'année scolaire (pour nous, certains week-ends !).
