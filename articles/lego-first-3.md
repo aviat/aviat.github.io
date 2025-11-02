@@ -3,28 +3,33 @@ title: "LEGO FIRST Robotic competition - week 3"
 description: "Semaine 3 : montage et programmation d'un premier robot"
 ---
 
-Cette semaine nous avons construit un premier robot simple, dont les instructions sont fournies dans l'application Spike. Nous avons réussi à le programmer pour suivre un parcours pré-déterminé :
+Cette semaine nous avons construit un premier robot simple. Nous avons réussi à le programmer pour suivre un parcours prédéterminé :
+
 <style> 
   iframe { 
     display: block; 
     margin: 0 auto; 
   } 
 </style> 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jJKjfuBVTCk?si=g-qoZON-ykOvobUf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Aay_dug16zI?si=hL5Oy5JJbAUxhVuR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-Le robot se compose de 2 roues, chacune sur un moteur. L'équilibre se fait non pas avec des roues supplémentaires mais avec une bille. L'utilisation d'une bille permet au robot de tourner plus librement dans tous les axes, alors que des roues opposeraient plus de frottement.
+Le robot se compose de deux roues, chacune entraînée par un moteur. L'équilibre se fait non pas avec des roues supplémentaires, mais avec une bille. L'utilisation d'une bille permet au robot de tourner plus librement dans tous les axes, alors que des roues opposeraient plus de frottement.
 
-Chaque moteur est commandé par un port différent, ils peuvent dont être commandés indépendemment. Les ordres doivent donc :
- - commander à chaque moteur de tourner en même temps pour faire avancer le robot
- - commander à chaque moteur de tourner en inverse pour faire pivoter le robot sur lui-même
+Les moteurs sont branchés sur des ports différents et peuvent donc être commandés indépendamment. Les ordres doivent donc :
+ - commander chaque moteur de tourner dans la même direction pour faire avancer le robot
+ - commander aux moteurs de tourner en sens inverse pour faire pivoter le robot sur lui-même
 
-De plus en mesurant la taille des roues (17.5 cm) nous pouvons indiquer qu'une rotation de moteur est égale à 17.5 cm parcourus. Cela permet simplement de programmer des centimètres pour faire avancer le robot.
+De plus, en mesurant la taille des roues (17,5 cm), nous pouvons configurer le programme en indiquant qu'une rotation du moteur correspond à 17,5 cm parcourus. Cela permet de programmer en indiquant des centimètres pour faire avancer le robot.
 
-Pour tourner, il y a deux options. Les enfants ont trouvé par essai et erreur la valeur qui tournait le robot d'un angle droit. Les papa ont utilisé un capteur, le gyroscope, qui permet de calculer l'angle selon lequel le robot se déplace. Cette méthode demande plus d'instructions et... n'est pas beaucoup plus précise. 
+Pour tourner, il y a deux options. Les enfants ont trouvé, par essais et erreurs, la valeur qui faisait tourner le robot d'un angle droit. Les papas ont utilisé un capteur, le gyroscope, qui permet de mesurer l'angle de déplacement du robot. Cette méthode demande plus d'instructions et n'est pas nécessairement plus précise.
+
+La programmation s'est faite à l'aide de l'application Spike. Voici le programme tel que réalisé par les enfants :
 
 ![Capture d'écran du parcours du robot par les enfants](/assets/img/lego_seance_3_enfants.jpeg)
 
+Puis la version des papas avec le gyroscope :
 
 ![Capture d'écran du parcours du robot par les papas](/assets/img/lego_seance_3_papas.jpeg)
 
 
+La semaine prochaine, nous ferons évoluer le robot en ajoutant un bras et des capteurs de couleur !
