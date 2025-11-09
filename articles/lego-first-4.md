@@ -1,10 +1,8 @@
 ---
 title: "FIRST LEGO LEAGUE Robotic competition - week 4"
 description: "Semaine 4 : découverte du bras et du capteur de distance"
-date: 2025-10-19
+date: 2025-11-08
 ---
-
-Séance du jour – Le bras et le capteur de distance
 
 Aujourd’hui, la séance consistait à équiper notre robot d’un bras et d’un capteur de distance.
 Nous avons ensuite disposé des briques sur le sol, puis programmé le robot pour qu’il en récupère une, recule, et recommence jusqu’à ramasser toutes les briques.
@@ -36,4 +34,4 @@ Vite corrigé par les enfants :
 </style> 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/47saVtBzNpw?si=0fiHqIbzh2jqitZ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-![Capture d'écran d'un programme de l'application Spike utilisant le capteur de distance](/assets/img/lego-first-1.md)
+![Capture d'écran d'un programme de l'application Spike utilisant le capteur de distance](/assets/img/lego-4.jpeg)
