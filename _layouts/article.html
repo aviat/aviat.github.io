@@ -1,28 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} - {{ site.title }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-    {% seo %}
-</head>
-<body>
-    <header class="site-header">
-        <div class="container">
-            <h1 class="site-title">{{ site.title }}</h1>
-            <nav class="site-nav">
-                <a href="{{ '/' | relative_url }}">Home</a>
-                <a href="{{ '/articles' | relative_url }}">Articles</a>
-                <a href="{{ '/contact' | relative_url }}">Contact</a>
-            </nav>
-        </div>
-    </header>
+---
+layout: default
+title: LEGO
+---
 
     <main class="site-content">
         <div class="container">
             <article class="article-detail">
-                <a href="{{ '/articles' | relative_url }}" class="back-link">← Back to Articles</a>
+                <a href="{{ '/articles' | relative_url }}" class="back-link">← Back to LEGO</a>
                 <h1 class="article-title">{{ page.title }}</h1>
                 {% if page.description %}
                 <p class="article-description">{{ page.description }}</p>
@@ -33,5 +17,3 @@
             </article>
         </div>
     </main>
-</body>
-</html>

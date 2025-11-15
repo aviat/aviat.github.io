@@ -5,13 +5,11 @@ WORKDIR /srv/jekyll
 RUN gem install bundler
 
 # Copy Gemfile and Gemfile.lock
-COPY Gemfile* ./
+COPY Gemfile* /srv/jekyll/
+
+RUN ls /srv/jekyll
 
 # Install dependencies
-RUN bundle install
-
-
-# RUN jekyll build --destination /srv/jekyll/_site
-
+RUN cd /srv/jekyll && bundle install
 
 CMD ["jekyll", "serve", "--verbose", "--host", "0.0.0.0"]

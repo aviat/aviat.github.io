@@ -12,12 +12,6 @@ Ce dimanche, nous sommes retrouvés, avons fini de placer les épreuves sur le g
 
 Il y a des moteurs et des capteurs qui permettent de détecter les couleurs, la distance et la pression, ainsi qu'un afficheur de quelques pixels. Ces éléments se branchent au "hub", l'élément central qui communique en Bluetooth avec l'application LEGO (nommée Spike), qui permet une programmation très simple et visuelle, à base de Scratch : un langage de programmation pédagogique développé pour les enfants. Le hub est également accessible via des bibliothèques dédiées, car le protocole est documenté par LEGO. Les enfants s'y sont familiarisés. Ils ont notamment programmé eux-mêmes un système qui affiche un visage différent en fonction de la couleur de brique détectée — voyez l'image ci-dessous !
 
-<style> 
-  iframe { 
-    display: block; 
-    margin: 0 auto; 
-  } 
-</style> 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aY0Xng8FFf0?si=wvdYNOpbKAgeoEHD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 

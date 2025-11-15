@@ -17,21 +17,10 @@ Autre difficulté : le capteur n’est pas efficace au-delà de 25 ou 30 cm. Or,
 
 Exemple d'erreur : le capteur reste trop loin pour détecter le moteur.
 
-<style> 
-  iframe { 
-    display: block; 
-    margin: 0 auto; 
-  } 
-</style> 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AWErWcHap-Y?si=-cTEEa7_lsPiq035" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Vite corrigé par les enfants :
-<style> 
-  iframe { 
-    display: block; 
-    margin: 0 auto; 
-  } 
-</style> 
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/47saVtBzNpw?si=0fiHqIbzh2jqitZ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ![Capture d'écran d'un programme de l'application Spike utilisant le capteur de distance](/assets/img/lego-4.jpeg)

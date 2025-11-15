@@ -1,71 +1,34 @@
 ---
 layout: default
-title: Articles
+title: LEGO 
 ---
 <section class="hero">
-    <h1>Articles</h1>
-    <p class="lead">Technical articles and insights on application security, cloud infrastructure, and software engineering.</p>
+    <h1>LEGO</h1>
+    <p class="lead">Buliding LEGO robots with kids</p>
 </section>
 
-<section class="articles-section">
-    <div class="articles-list">
-        {% assign article_pages = site.pages | where_exp: "page", "page.path contains 'articles/'" | where_exp: "page", "page.path contains '.md'" | sort: "date" | reverse %}
-        {% for article in article_pages %}
-        <article class="article-item">
-            <h2><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h2>
+<section class="portfolio-list">
+    {% assign sorted_articles = site.articles | sort: "date" | reverse %}
+    {% for article in sorted_articles %}
+    <article class="portfolio-item">
+        <div class="portfolio-header">
+            <h2>
+                <a href="{{ article.url | relative_url }}">{{ article.title }}</a>
+            </h2>
+            <div class="portfolio-meta">
+                <div class="meta-content">
+                    <span class="type">Article</span>
+                    {% if article.date %}
+                    <span class="date">{{ article.date | date: "%b %-d, %Y" }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% if article.description %}
+        <div class="portfolio-content">
             <p>{{ article.description }}</p>
-        </article>
-        {% endfor %}
-    </div>
+        </div>
+        {% endif %}
+    </article>
+    {% endfor %}
 </section>
-
-<style>
-.articles-section {
-    margin-top: 2rem;
-}
-
-.articles-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.article-item {
-    background: white;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 12px rgba(59, 130, 246, 0.1);
-    border: 2px solid #e0f2fe;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.article-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.2);
-    border-color: #0ea5e9;
-}
-
-.article-item h2 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
-    line-height: 1.3;
-}
-
-.article-item h2 a {
-    color: #2563eb;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.article-item h2 a:hover {
-    color: #0ea5e9;
-}
-
-.article-item p {
-    color: #475569;
-    line-height: 1.6;
-    margin-bottom: 0;
-    font-size: 0.95rem;
-}
-</style>

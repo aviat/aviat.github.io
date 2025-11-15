@@ -1,7 +1,7 @@
 title: Jb Aviat
 description: Software securtiy engineer & entrepreneur
 baseurl: ""
-url: ""
+url: "https://aviat.github.io"
 
 # Build settings
 markdown: kramdown
@@ -9,9 +9,16 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+# Feed configuration - use articles collection
+feed:
+  collections:
+    - articles
+
 # Collections
 collections:
   portfolio:
+    output: true
+  articles:
     output: true
 
 # Defaults
@@ -21,6 +28,11 @@ defaults:
       type: "portfolio"
     values:
       layout: "portfolio-item"
+  - scope:
+      path: ""
+      type: "articles"
+    values:
+      layout: "article"
 
 # Exclude from processing
 exclude:
@@ -30,14 +42,6 @@ exclude:
   - vendor
   - .git
   - old
-
-# Defaults for articles
-defaults:
-  - scope:
-      path: "articles"
-      type: "pages"
-    values:
-      layout: "article"
 
 # Disable Sass processing
 sass:

@@ -476,74 +476,119 @@ body {
     font-style: italic;
 }
 
+.article-body iframe {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Video and Portfolio Meta Layout */
+.portfolio-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.meta-content {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.video-container {
+    position: relative;
+    width: 50%;
+    min-width: 300px;
+    height: 0;
+    padding-bottom: 28.125%; /* 16:9 Aspect Ratio for half width */
+    margin: 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero {
         padding: 2rem 1rem;
     }
-    
+
     .hero h1 {
         font-size: 2rem;
     }
-    
+
     .hero .lead {
         font-size: 1.1rem;
     }
-    
+
     .videos h2 {
         font-size: 1.8rem;
     }
-    
+
     .video-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .video-title {
         font-size: 1rem;
     }
-    
+
     .portfolio-header {
         flex-direction: column;
         gap: 0.5rem;
     }
-    
+
     .portfolio-source {
         align-self: flex-start;
         margin-top: 0.5rem;
     }
-    
+
     .portfolio-item {
         padding: 1.2rem;
     }
-    
+
     .portfolio-item h2 {
         font-size: 1.2rem;
     }
-    
+
     .portfolio-meta {
+        flex-direction: column;
         justify-content: flex-start;
     }
-    
+
     .portfolio-meta span {
         font-size: 0.8rem;
         padding: 0.15rem 0.5rem;
     }
-    
+
     .portfolio-content {
         font-size: 0.9rem;
     }
-    
+
     .filters {
         padding: 0.8rem;
     }
-    
+
     .filter-buttons {
         gap: 0.3rem;
     }
-    
+
     .filter-btn {
         padding: 0.2rem 0.6rem;
         font-size: 0.85rem;
+    }
+
+    .video-container {
+        width: 100%;
+        padding-bottom: 56.25%; /* Full width 16:9 Aspect Ratio */
+        margin-top: 1rem;
     }
 } 
