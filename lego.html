@@ -1,0 +1,34 @@
+---
+layout: default
+title: LEGO 
+---
+<section class="hero">
+    <h1>LEGO</h1>
+    <p class="lead">Buliding LEGO robots with kids</p>
+</section>
+
+<section class="portfolio-list">
+    {% assign sorted_articles = site.posts | sort: "date" | reverse %}
+    {% for article in sorted_articles %}
+    <article class="portfolio-item">
+        <div class="portfolio-header">
+            <h2>
+                <a href="{{ article.url | relative_url }}">{{ article.title }}</a>
+            </h2>
+            <div class="portfolio-meta">
+                <div class="meta-content">
+                    <span class="type">Article</span>
+                    {% if article.date %}
+                    <span class="date">{{ article.date | date: "%b %-d, %Y" }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% if article.description %}
+        <div class="portfolio-content">
+            <p>{{ article.description }}</p>
+        </div>
+        {% endif %}
+    </article>
+    {% endfor %}
+</section>

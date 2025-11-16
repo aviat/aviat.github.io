@@ -9,16 +9,9 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# Feed configuration - use articles collection
-feed:
-  collections:
-    - articles
-
 # Collections
 collections:
   portfolio:
-    output: true
-  articles:
     output: true
 
 # Defaults
@@ -28,11 +21,6 @@ defaults:
       type: "portfolio"
     values:
       layout: "portfolio-item"
-  - scope:
-      path: ""
-      type: "articles"
-    values:
-      layout: "article"
 
 # Exclude from processing
 exclude:
