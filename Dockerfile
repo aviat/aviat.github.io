@@ -12,4 +12,4 @@ RUN ls /srv/jekyll
 # Install dependencies
 RUN cd /srv/jekyll && bundle install
 
-CMD ["jekyll", "serve", "--verbose", "--host", "0.0.0.0"]
+CMD ["bundle", "exec", "jekyll", "serve", "--verbose", "--host", "0.0.0.0"]
