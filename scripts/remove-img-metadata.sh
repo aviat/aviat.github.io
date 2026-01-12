@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [ $# -lt 2 ] ; then
+if [ $# -lt 1 ] ; then
     echo "Usage: $0 img1 [img2 [...]]"
     echo "  remove privacy sensitive metadata from Exif"
     exit 1

@@ -11,4 +11,4 @@ fi;
 dir=$(dirname $1)
 name=$(basename $1)
 
-ffmpeg -i $1 -c copy -an ${dir}/silent_${name}
+ffmpeg -i $1 -map_metadata -1 -c copy -an ${dir}/silent_${name}
