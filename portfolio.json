@@ -318,5 +318,38 @@
         "Duration": "",
         "Description / Summary": "Sqreen was finalist at the RSAC Innovation Sandbox Contest competition. The competition calls on the most promising young companies in cybersecurity to showcase their transformative technologies to a panel of judges and live audience at RSA Conference 2020 in San Francisco.",
         "url": "https://www.youtube.com/watch?v=S1zRNMMsavc"
+    },
+    {
+        "Title / Name": "Accélérer un pentest avec des outils d’observabilité",
+        "Type": "Article",
+        "Date": "2023-03",
+        "Language": "French",
+        "Guests": "",
+        "Duration": "",
+        "Reference": "MISC no 126",
+        "Description / Summary": "Comprendre précisément le fonctionnement d’un système est important pour la réalisation d’une attaque, mais également pour le maintenir en conditions opérationnelles. Les développeurs et devops utilisent des outils spécifiques pour observer et comprendre leurs systèmes en temps réel - et même de façon proactive. Par exemple, pour comprendre la performance d’une application web, pour prédire le remplissage d’un disque dur ou pour détecter des erreurs dans les logs d’un fournisseur de cloud. Ces données peuvent aussi aider un attaquant à comprendre d’une part l’architecture du système ciblé, et d’autre part ses réactions à leurs stimuli.",
+        "url": "https://connect.ed-diamond.com/misc/misc-126/accelerer-un-pentest-avec-des-outils-d-observabilite"
+    },
+    {
+        "Title / Name": "Principes de sécurité des fournisseurs de cloud (CSP) et détection",
+        "Type": "Article",
+        "Date": "2022-10",
+        "Language": "French",
+        "Guests": "",
+        "Duration": "",
+        "Reference": "MISC HS no 26",
+        "Description / Summary": "Cet article détaille les principes de sécurité des fournisseurs de cloud, et comment leur approche API permet une approche systématique de la sécurité.",
+        "url": "https://connect.ed-diamond.com/misc/mischs-026/principes-de-securite-des-fournisseurs-de-cloud-csp-et-detection"
+    },
+    {
+        "Title / Name": "Forensic et remise en condition",
+        "Type": "Article",
+        "Date": "2022-10",
+        "Language": "French",
+        "Guests": "",
+        "Duration": "",
+        "Reference": "MISC HS no 26",
+        "Description / Summary": "De plus en plus d’entreprises ont entamé une migration de leurs services dans le cloud, mais n’ont bien souvent pas pris en compte dès le départ le sujet du forensic et plus largement de la réponse à incidents. Bien que l’environnement soit différent du classique On-Prem, les enjeux restent les mêmes, être en mesure de détecter et d’investiguer le plus rapidement possible les ressources compromises.",
+        "url": "https://connect.ed-diamond.com/misc/mischs-026/forensic-et-remise-en-condition"
     }
 ]
