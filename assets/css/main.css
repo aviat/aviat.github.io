@@ -514,6 +514,98 @@ body {
     height: 100%;
 }
 
+/* Contact Page */
+.contact-page {
+    padding-bottom: 3rem;
+}
+
+.contact-hero {
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-bottom: 2.5rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+    border: 2px solid var(--color-sky-blue);
+    box-shadow: 0 4px 20px rgba(14, 165, 233, 0.15);
+}
+
+.contact-hero h1 {
+    color: var(--color-primary-blue);
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-hero p {
+    color: #1e293b;
+    font-size: 1.1rem;
+}
+
+.contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    border: 2px solid #e0f2fe;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 2px 12px rgba(59, 130, 246, 0.1);
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
+    border-color: var(--color-sky-blue);
+}
+
+.contact-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+    color: var(--color-primary-blue);
+    flex-shrink: 0;
+    transition: background 0.3s ease;
+}
+
+.contact-card:hover .contact-card-icon {
+    background: linear-gradient(135deg, var(--color-primary-blue), var(--color-sky-blue));
+    color: white;
+}
+
+.contact-card-content h2 {
+    color: var(--color-primary-blue);
+    font-size: 1.25rem;
+    margin-bottom: 0.2rem;
+}
+
+.contact-card-content p {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.contact-card-arrow {
+    margin-left: auto;
+    font-size: 1.5rem;
+    color: #cbd5e1;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-card:hover .contact-card-arrow {
+    color: var(--color-primary-blue);
+    transform: translateX(4px);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero {
