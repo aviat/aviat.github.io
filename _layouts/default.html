@@ -24,6 +24,12 @@
             {{ content }}
         </div>
     </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }} &middot; <a href="{{ '/contact' | relative_url }}">Get in touch</a></p>
+        </div>
+    </footer>
+
     <script src="{{ '/assets/js/filters.js' | relative_url }}"></script>
 </body>
 </html> 
