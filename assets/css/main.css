@@ -356,13 +356,6 @@ button:focus-visible {
     font-size: 1.4rem;
 }
 
-.portfolio-meta .featured-badge {
-    background-color: var(--color-primary-blue);
-    border-color: var(--color-primary-blue);
-    color: #ffffff;
-    font-weight: 600;
-}
-
 .portfolio-item h2 {
     margin: 0;
     font-size: 1.25rem;

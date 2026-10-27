@@ -1,7 +1,7 @@
 ---
 layout: "portfolio-item"
 title: "State of Application Security (Datadog report)"
-type: "Report"
+type: "Article"
 date: "25 April 2023"
 language: "English"
 guests: ""

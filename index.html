@@ -51,7 +51,6 @@ title: Home
             </h2>
             <div class="portfolio-meta">
                 <div class="meta-content">
-                    {% if item.featured %}<span class="featured-badge">Featured</span>{% endif %}
                     <span class="type">{{ item.type }}</span>
                     <span class="date">{{ item.date | date: "%b %-d, %Y" }}</span>
                     {% if item.language %}
