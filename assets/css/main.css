@@ -345,6 +345,24 @@ button:focus-visible {
     margin-bottom: 0.9rem;
 }
 
+.portfolio-item.featured {
+    background: linear-gradient(180deg, #f5f9ff 0%, var(--surface) 70%);
+    border-color: var(--hairline-blue);
+    border-left: 4px solid var(--color-primary-blue);
+    box-shadow: var(--shadow-2);
+}
+
+.portfolio-item.featured h2 {
+    font-size: 1.4rem;
+}
+
+.portfolio-meta .featured-badge {
+    background-color: var(--color-primary-blue);
+    border-color: var(--color-primary-blue);
+    color: #ffffff;
+    font-weight: 600;
+}
+
 .portfolio-item h2 {
     margin: 0;
     font-size: 1.25rem;
@@ -491,10 +509,83 @@ button:focus-visible {
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
+.article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 0.6rem;
+    color: var(--ink-muted);
+    font-size: 0.92rem;
+    margin-bottom: 2rem;
+}
+
+.article-meta > * + *::before {
+    content: "\00B7";
+    margin-right: 0.6rem;
+    color: var(--ink-faint);
+}
+
+.article-note {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--ink-muted);
+    margin-bottom: 2.5rem;
+    padding: 0.9rem 1.15rem;
+    background-color: #f7fbff;
+    border: 1px solid var(--hairline-blue);
+    border-radius: var(--radius-sm);
+}
+
+.article-note p + p {
+    margin-top: 0.35rem;
+}
+
+.article-note a {
+    color: var(--color-primary-blue);
+    text-decoration: none;
+    border-bottom: 1px solid #bfdbfe;
+}
+
+.article-note a:hover {
+    border-bottom-color: var(--color-primary-blue);
+}
+
 .article-body {
     color: var(--ink-body);
     line-height: 1.8;
-    font-size: 1.02rem;
+    font-size: 1.05rem;
+}
+
+.article-body > p:first-child {
+    font-size: 1.15rem;
+    color: var(--ink);
+}
+
+.article-body .figure {
+    margin: 2rem 0 0;
+}
+
+.article-body .figure img {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid var(--hairline);
+    box-shadow: var(--shadow-1);
+}
+
+.article-body .caption {
+    margin: 0.6rem 0 2rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+}
+
+.article-body ol > li::marker {
+    color: var(--color-primary-blue);
+    font-weight: 600;
+}
+
+.article-body li > p {
+    margin-bottom: 0.6rem;
 }
 
 .article-body h1,

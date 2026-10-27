@@ -33,20 +33,25 @@ title: Home
     </div>
 
     {% assign sorted_portfolio = site.portfolio | sort: 'date' | reverse %}
+    {% assign featured_items = sorted_portfolio | where: "featured", true %}
+    {% assign other_items = sorted_portfolio | where_exp: "item", "item.featured != true" %}
+    {% assign sorted_portfolio = featured_items | concat: other_items %}
     {% for item in sorted_portfolio %}
-    <article class="portfolio-item" 
+    <article class="portfolio-item{% if item.featured %} featured{% endif %}" 
              data-type="{{ item.type }}"
              data-language="{{ item.language }}">
         <div class="portfolio-header">
             <h2>
                 {% if item.source_link %}
-                <a href="{{ item.source_link }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+                {% assign external = item.source_link | slice: 0, 4 %}
+                <a href="{{ item.source_link }}"{% if external == "http" %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.title }}</a>
                 {% else %}
                 {{ item.title }}
                 {% endif %}
             </h2>
             <div class="portfolio-meta">
                 <div class="meta-content">
+                    {% if item.featured %}<span class="featured-badge">Featured</span>{% endif %}
                     <span class="type">{{ item.type }}</span>
                     <span class="date">{{ item.date | date: "%b %-d, %Y" }}</span>
                     {% if item.language %}
