@@ -7,6 +7,7 @@ language: "English"
 guests: ""
 source_link: "https://github.com/sqreen/CTOSecurityChecklist"
 duration: ""
+preview: "/assets/img/previews/saas-cto-security-checklist.png"
 ---
 
 The SaaS CTO Security Checklist, originally compiled by Sqreen (Jb Aviat and team). A comprehensive checklist of security best practices for startups/CTOs to harden their SaaS applications and infrastructure . Open-sourced (700+ stars on GitHub).

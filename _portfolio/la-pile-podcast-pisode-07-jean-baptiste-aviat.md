@@ -7,6 +7,7 @@ language: "French"
 guests: ""
 source_link: "https://podcasts.apple.com/fr/podcast/la-pile/id1356565442"
 duration: ""
+preview: "/assets/img/previews/la-pile-podcast-pisode-07-jean-baptiste-aviat.jpg"
 ---
 
 Episode of La pile podcast featuring Jb Aviat (CTO, Sqreen). In this episode, on invite Jean-Baptiste Aviat… CTO chez Sqreen. Dans cet épisode, il nous donne plus de détails sur Sqreen et on parle ensemble de sécurité. – i.e. he gives more details about Sqreen and discusses security topics .

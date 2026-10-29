@@ -7,6 +7,7 @@ language: "English"
 guests: ""
 source_link: "https://www.darkreading.com/application-security/rasp-101-staying-safe-with-runtime-application-self-protection"
 duration: ""
+preview: "/assets/img/previews/rasp-101-staying-safe-with-runtime-application-self-protection.jpg"
 ---
 
 The dream of RASP is to empower applications to protect themselves. How close do current implementations get to living the dream? Here's what to know.

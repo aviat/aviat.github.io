@@ -7,6 +7,7 @@ language: "French"
 guests: ""
 source_link: "https://podcasts.apple.com/us/podcast/125-src-vuln%C3%A9rabilit%C3%A9-pour-lamour-de-la-s%C3%A9curit%C3%A9/id1471506605?i=1000548303844"
 duration: "64 min"
+preview: "/assets/img/previews/ifttd-125-vulnerabilite-pour-l-amour-de-la-securite.jpg"
 ---
 
 Guest on If This Then Dev: the Sqreen story and the basics of securing an application.

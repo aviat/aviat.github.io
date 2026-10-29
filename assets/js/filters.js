@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
 
                     // Show/hide item
-                    item.style.display = show ? 'block' : 'none';
+                    item.style.display = show ? '' : 'none';
                 });
             });
         });

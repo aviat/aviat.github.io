@@ -7,6 +7,7 @@ language: "French"
 guests: "Aurore Malherbes"
 source_link: "https://podcast.ausha.co/tech-rocks/jean-baptiste-aviat-datadog-aurore-malherbes-padok-s03ep27"
 duration: ""
+preview: "/assets/img/previews/tech-rocks-paroles-de-tech-leaders-s03ep27.jpg"
 ---
 
 Interview by Aurore Malherbes (Padok) on the Tech.Rocks podcast about Sqreen's acquisition by Datadog: what a co-founder's role becomes and how to bring teams along.

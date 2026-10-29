@@ -7,6 +7,7 @@ language: "French"
 guests: ""
 source_link: "https://www.frenchweb.fr/sqreen-leve-14-millions-de-dollars-pour-developper-la-securite-des-applications-web/353204"
 duration: ""
+preview: "/assets/img/previews/sqreen-l-ve-14-millions-de-dollars-pour-mieux-prot-ger-les-applications-web.jpg"
 ---
 
 FrenchWeb news piece on Sqreen's $14M fundraising. Highlights that the company was founded in 2015 in Paris by Jean-Baptiste Aviat and Pierre Betouin, both ex-Apple security engineers . Describes Sqreen's self-protection (ASM) solution and growth to 500+ clients by 2019.

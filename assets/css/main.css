@@ -703,6 +703,198 @@ button:focus-visible {
     height: 100%;
 }
 
+/* Portfolio grid: uniform tiles with a preview */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.portfolio-grid .tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.tile-preview {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: linear-gradient(160deg, #eaf4ff 0%, #dbeafe 100%);
+    border-bottom: 1px solid var(--hairline);
+}
+
+.tile-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s var(--ease);
+}
+
+.tile:hover .tile-preview img {
+    transform: scale(1.03);
+}
+
+.tile-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 54px;
+    height: 54px;
+    margin: -27px 0 0 -27px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.72);
+    box-shadow: 0 8px 20px -8px rgba(15, 23, 42, 0.6);
+    transition: background-color 0.2s ease, transform 0.2s var(--ease);
+}
+
+.tile-play::after {
+    content: "";
+    position: absolute;
+    left: 21px;
+    top: 17px;
+    border-style: solid;
+    border-width: 10px 0 10px 16px;
+    border-color: transparent transparent transparent #ffffff;
+}
+
+.tile:hover .tile-play {
+    background: var(--color-primary-blue);
+    transform: scale(1.06);
+}
+
+.tile-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary-blue);
+    font-weight: 650;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.tile-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    padding: 0.95rem 1.1rem 1.15rem;
+    flex: 1;
+}
+
+.portfolio-grid .tile h2 {
+    flex: none;
+    font-size: 1.02rem;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+/* The title link covers the whole tile; links inside the text stay clickable above it */
+.tile-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.portfolio-grid .tile h2 a:hover {
+    border-bottom-color: transparent;
+}
+
+.tile:hover h2 a {
+    color: var(--color-primary-blue);
+}
+
+.portfolio-grid .tile .portfolio-content {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--ink-muted);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+.portfolio-grid .tile .portfolio-content p {
+    margin: 0;
+}
+
+.portfolio-grid .tile .portfolio-content a {
+    position: relative;
+    z-index: 2;
+}
+
+.portfolio-grid .meta-content {
+    flex: none;
+}
+
+.portfolio-grid .meta-content span {
+    font-size: 0.72rem;
+    padding: 0.12rem 0.55rem;
+    background-color: var(--surface-tint);
+    border-radius: 999px;
+    border: 1px solid var(--hairline);
+    color: var(--ink-muted);
+    white-space: nowrap;
+}
+
+.portfolio-grid .meta-content .type {
+    background-color: #eff6ff;
+    color: var(--color-primary-blue);
+    font-weight: 600;
+    border-color: #dbeafe;
+}
+
+/* Featured tile: full row, preview beside the text */
+.portfolio-grid .tile.featured {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    border-left-width: 1px;
+}
+
+.portfolio-grid .tile.featured .tile-preview {
+    flex: 0 0 min(46%, 520px);
+    border-bottom: none;
+    border-right: 1px solid var(--hairline);
+}
+
+.portfolio-grid .tile.featured .tile-body {
+    justify-content: center;
+    padding: 1.5rem 1.75rem;
+    gap: 0.75rem;
+}
+
+.portfolio-grid .tile.featured h2 {
+    font-size: 1.45rem;
+}
+
+.portfolio-grid .tile.featured .portfolio-content {
+    font-size: 0.95rem;
+    -webkit-line-clamp: 5;
+}
+
+@media (max-width: 700px) {
+    .portfolio-grid .tile.featured {
+        flex-direction: column;
+    }
+
+    .portfolio-grid .tile.featured .tile-preview {
+        flex: none;
+        border-right: none;
+        border-bottom: 1px solid var(--hairline);
+    }
+}
+
 /* Contact Page */
 .contact-page {
     max-width: 720px;
