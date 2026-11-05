@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roundtable Timer</title>
+<style>
+  :root { --bg:#0f1115; --fg:#e8eaed; --muted:#8a8f98; --accent:#4f9cff; --done:#ff5c5c; --warn:#f0b429; --ok:#3fb950; --field:#1a1d23; --card:#161920;
+          --line:color-mix(in srgb, var(--muted) 30%, transparent); }
+  @media (prefers-color-scheme: light) { :root { --bg:#f7f7f8; --fg:#16181d; --muted:#5f6670; --accent:#1f6feb; --done:#d93025; --warn:#b26a00; --ok:#1a7f37; --field:#fff; --card:#fff; } }
+  * { box-sizing: border-box; }
+  body { margin:0; min-height:100vh; background:var(--bg); color:var(--fg); font-family: system-ui, -apple-system, sans-serif; padding:56px 16px 88px; }
+  [hidden] { display:none !important; }
+  button { font:inherit; font-size:18px; padding:12px 28px; border-radius:10px; border:1px solid var(--muted);
+           background:transparent; color:var(--fg); cursor:pointer; min-width:120px; }
+  button.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  button:disabled { opacity:.5; cursor:default; }
+  input, textarea { font:inherit; font-size:18px; padding:10px 12px; border-radius:10px; border:1px solid var(--muted);
+                    background:var(--field); color:var(--fg); }
+
+  /* Join screen */
+  #join { max-width:440px; margin:10vh auto 0; text-align:center; display:flex; flex-direction:column; gap:16px; }
+  #join h1 { margin:0 0 8px; font-size:28px; }
+  #join p { color:var(--muted); margin:0; }
+  #join form { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+  #join input { flex:1 1 220px; min-width:0; }
+  #join .or { color:var(--muted); font-size:14px; }
+
+  /* Meeting layout */
+  .layout { display:grid; gap:40px; max-width:1200px; margin:0 auto; }
+  @media (min-width: 960px) { .layout { grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items:start; } }
+  .timer { text-align:center; }
+  #time { font-variant-numeric: tabular-nums; font-size: clamp(64px, 22vw, 160px); font-weight:600; line-height:1; letter-spacing:-0.02em; }
+  @media (min-width: 960px) { #time { font-size: clamp(96px, 11vw, 180px); } }
+  #time { transition: color .3s, opacity .3s; }
+  #time.paused { opacity:.4; }
+  #time.warn { color:var(--warn); }
+  #time.crit, #time.done { color:var(--done); }
+  #time.done { animation: pulse 1s ease-in-out infinite; }
+  #progress.warn { background:var(--warn); }
+  #progress.crit { background:var(--done); }
+  @keyframes pulse { 50% { opacity:.4; } }
+  .bar { height:6px; background:color-mix(in srgb, var(--muted) 25%, transparent); border-radius:3px; margin:24px 0; overflow:hidden; }
+  .bar > div { height:100%; background:var(--accent); width:100%; transition: width .2s linear; }
+  .controls { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:24px; }
+  #status { color:var(--muted); min-height:1.4em; }
+
+  #durationForm { margin-top:32px; padding-top:24px; border-top:1px solid var(--line);
+         display:flex; flex-direction:column; gap:14px; align-items:center; }
+  .fields { display:flex; gap:12px; align-items:end; flex-wrap:wrap; justify-content:center; }
+  label { display:flex; flex-direction:column; gap:6px; font-size:14px; color:var(--muted); text-align:left; }
+  .fields input { width:96px; font-variant-numeric: tabular-nums; }
+  #durationForm button { font-size:16px; padding:10px 20px; min-width:0; }
+  .presets { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+  .presets button { font-size:14px; padding:6px 14px; border-radius:999px; }
+  #formError { color:var(--done); font-size:14px; }
+  #formError:empty { display:none; }
+  .meeting-tools { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+  .meeting-tools button { font-size:14px; padding:6px 14px; min-width:0; }
+  body.controls-hidden #panel { display:none; }
+
+  /* Questions */
+  .questions h2 { font-size:20px; margin:0 0 12px; display:flex; justify-content:space-between; align-items:baseline; }
+  .questions h2 small { color:var(--muted); font-weight:400; font-size:14px; }
+  .small-btn { font-size:13px; padding:3px 12px; min-width:0; border-radius:999px; }
+  #askForm { display:grid; grid-template-columns: 1fr auto; gap:8px; align-items:center; margin-bottom:16px; }
+  #askForm textarea { grid-column: 1 / -1; resize:vertical; min-height:56px; }
+  #askForm button[type=submit] { font-size:16px; padding:10px 20px; min-width:0; }
+  .asker { display:flex; align-items:center; min-width:0; font-size:15px; color:var(--muted); }
+  .asker strong { color:var(--fg); font-weight:600; overflow-wrap:anywhere; }
+  .asker input { flex:1; min-width:0; font-size:15px; }
+  .link-btn { border:0; padding:0; min-width:0; border-radius:0; font-size:inherit; background:none; color:var(--accent); text-decoration:underline; }
+  .ask-hint { grid-column: 1 / -1; }
+  @media (hover: none) { .ask-hint, .qfooter .hint { display:none; } }   /* no keyboard hints on touch devices */
+  .qfooter { display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap; margin-top:12px; }
+  #qList { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+  .q { display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:start; background:var(--card);
+       border:1px solid var(--line); border-radius:12px; padding:12px; }
+  .q.answered .qtext { color:var(--muted); }
+  .q.answered .vote { opacity:.6; }
+  .q.selected { outline:2px solid var(--accent); outline-offset:2px; }
+  .hint { color:var(--muted); font-size:13px; font-weight:400; }
+  kbd { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12px; padding:1px 6px; border-radius:5px;
+        border:1px solid var(--line); background:color-mix(in srgb, var(--muted) 12%, transparent); }
+
+  /* Shortcut help */
+  #help { position:fixed; inset:0; display:grid; place-items:center; background:color-mix(in srgb, var(--bg) 70%, transparent); z-index:10; padding:16px; }
+  #help .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 24px; max-width:520px; width:100%;
+                max-height:calc(100vh - 32px); overflow:auto; }
+  #help h3 { margin:0 0 4px; font-size:18px; }
+  #help h4 { margin:16px 0 6px; font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; }
+  #help table { width:100%; border-collapse:collapse; font-size:15px; }
+  #help td { padding:4px 0; vertical-align:top; }
+  #help table { table-layout:fixed; }
+  #help td:first-child { white-space:nowrap; padding-right:16px; width:190px; }
+  .vote { min-width:56px; padding:6px 8px; font-size:16px; display:flex; flex-direction:column; align-items:center; line-height:1.1;
+          font-variant-numeric: tabular-nums; }
+  .vote.mine { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .qtext { font-size:18px; white-space:pre-wrap; overflow-wrap:anywhere; }
+  .qmeta { color:var(--muted); font-size:13px; margin-top:6px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .qmeta .badge { color:var(--ok); }
+  .qadmin button { font-size:13px; padding:2px 10px; min-width:0; border-radius:999px; }
+  body.controls-hidden .qadmin { display:none; }
+  .empty { color:var(--muted); text-align:center; padding:24px 0; }
+
+  /* Connection pill + cog */
+  #conn { position:fixed; left:16px; top:14px; font-size:13px; color:var(--muted); display:flex; align-items:center; gap:6px; }
+  #conn i { width:8px; height:8px; border-radius:50%; background:var(--muted); display:inline-block; }
+  #conn.on i { background:var(--ok); }
+  #conn.off i { background:var(--done); }
+  #panelToggle { position:fixed; right:16px; bottom:16px; width:48px; height:48px; min-width:0; padding:0;
+                 display:grid; place-items:center; border-radius:50%;
+                 border:1px solid color-mix(in srgb, var(--muted) 50%, transparent);
+                 background:color-mix(in srgb, var(--muted) 12%, transparent); color:var(--fg);
+                 opacity:.7; transition:opacity .2s, transform .3s, background .2s; }
+  #panelToggle svg { width:24px; height:24px; }
+  #panelToggle:hover, #panelToggle:focus-visible { opacity:1; background:color-mix(in srgb, var(--muted) 25%, transparent); }
+  /* Narrow screens: move the cog to the top bar so it never covers the question list. */
+  @media (max-width: 959px) { #panelToggle { top:6px; bottom:auto; right:12px; width:40px; height:40px; } #panelToggle svg { width:20px; height:20px; } }
+  body:not(.controls-hidden) #panelToggle { opacity:1; transform:rotate(60deg); border-color:var(--accent); color:var(--accent); }
+</style>
+</head>
+<body class="controls-hidden">
+
+<section id="join" hidden>
+  <h1>Roundtable Timer</h1>
+  <p>Shared countdown and question board. Everyone with the meeting link sees and edits the same thing.</p>
+  <button id="newMeeting" class="primary">Start a new meeting</button>
+  <div class="or">or join one</div>
+  <form id="joinForm">
+    <input id="joinInput" placeholder="Paste the meeting link or ID" autocomplete="off">
+    <button type="submit">Join</button>
+  </form>
+  <div id="joinError" style="color:var(--done);font-size:14px;min-height:1.2em"></div>
+</section>
+
+<div id="app" hidden>
+  <div id="conn"><i></i><span id="connText">Connecting…</span></div>
+
+  <div class="layout">
+    <section class="timer">
+      <div id="time">3:00</div>
+      <div class="bar"><div id="progress"></div></div>
+      <div id="status"></div>
+      <div class="controls">
+        <button id="toggle" class="primary">Start</button>
+        <button id="reset">Reset</button>
+      </div>
+
+      <div id="panel">
+        <form id="durationForm" novalidate>
+          <div class="fields">
+            <label>Minutes <input id="minutes" type="number" min="0" max="999" step="1" inputmode="numeric"></label>
+            <label>Seconds <input id="seconds" type="number" min="0" max="59" step="1" inputmode="numeric"></label>
+            <button type="submit" class="primary">Set timer</button>
+          </div>
+          <div class="presets">
+            <button type="button" data-min="1">1 min</button>
+            <button type="button" data-min="3">3 min</button>
+            <button type="button" data-min="5">5 min</button>
+            <button type="button" data-min="10">10 min</button>
+            <button type="button" data-min="25">25 min</button>
+          </div>
+          <div id="formError"></div>
+          <div class="meeting-tools">
+            <button type="button" id="copyLink">Copy invite link</button>
+            <button type="button" id="leave">Leave meeting</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="questions">
+      <h2>Questions <small id="qCount"></small></h2>
+      <form id="askForm">
+        <textarea id="qText" autocomplete="off" maxlength="500" placeholder="Ask a question… (press c)" aria-label="Your question" required></textarea>
+        <div class="asker">
+          <span id="askerView" hidden>Asking as <strong id="askerName"></strong> · <button type="button" id="changeName" class="link-btn">change</button></span>
+          <input id="qName" maxlength="60" placeholder="Your name" aria-label="Your name" autocomplete="name" required pattern=".*\S.*" title="Enter your name">
+        </div>
+        <button type="submit" class="primary">Ask</button>
+        <div class="hint ask-hint"><kbd>Enter</kbd> send · <kbd>Shift</kbd>+<kbd>Enter</kbd> new line · <kbd>Esc</kbd> leave the box</div>
+      </form>
+      <ul id="qList"></ul>
+      <div class="qfooter">
+        <span class="hint"><kbd>?</kbd> keyboard shortcuts</span>
+        <button type="button" id="copyQuestions" class="small-btn" title="Copy all questions as Markdown (y)">Copy as Markdown</button>
+      </div>
+    </section>
+  </div>
+
+  <div id="help" hidden role="dialog" aria-label="Keyboard shortcuts">
+    <div class="card">
+      <h3>Keyboard shortcuts</h3>
+      <h4>Questions</h4>
+      <table>
+        <tr><td><kbd>j</kbd> <kbd>k</kbd> · <kbd>↓</kbd> <kbd>↑</kbd></td><td>Next / previous question</td></tr>
+        <tr><td><kbd>g</kbd><kbd>g</kbd> · <kbd>G</kbd></td><td>First / last question</td></tr>
+        <tr><td><kbd>Space</kbd> <kbd>Enter</kbd> <kbd>u</kbd> <kbd>+</kbd></td><td>Toggle your upvote on the selected question</td></tr>
+        <tr><td><kbd>c</kbd> <kbd>i</kbd> <kbd>/</kbd></td><td>Write a question</td></tr>
+        <tr><td><kbd>a</kbd></td><td>Mark selected answered / reopen</td></tr>
+        <tr><td><kbd>#</kbd></td><td>Delete selected</td></tr>
+        <tr><td><kbd>y</kbd></td><td>Copy all questions as Markdown (yank)</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Leave the text box / clear selection</td></tr>
+      </table>
+      <h4>Timer</h4>
+      <table>
+        <tr><td><kbd>t</kbd> · <kbd>Space</kbd></td><td>Start / pause (Space only when no question is selected)</td></tr>
+        <tr><td><kbd>r</kbd></td><td>Reset</td></tr>
+        <tr><td><kbd>h</kbd></td><td>Show / hide controls</td></tr>
+        <tr><td><kbd>?</kbd></td><td>This help</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <button id="panelToggle" type="button" title="Show/hide controls (H)" aria-label="Show or hide controls">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="3"/>
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+    </svg>
+  </button>
+</div>
+
+<script type="module">
+  /*
+   * Peer-to-peer sync, no backend.
+   * - The meeting ID lives in the URL fragment (#...), which browsers never send to the web server.
+   * - Peers find each other through public Nostr relays (Trystero), then talk directly over WebRTC.
+   *   The meeting ID is also the Trystero password: connection offers are encrypted with it, so
+   *   nobody without the ID can join or read anything.
+   * - Shared state = timer + questions + votes. Every entry carries (ts, by) and merges
+   *   last-writer-wins, so peers converge no matter the order messages arrive in.
+   *   Each browser also keeps a copy in localStorage, so the meeting survives reloads
+   *   and comes back even if everyone left.
+   */
+  const APP_ID = 'roundtable-timer-p2p-v1';
+  const TRYSTERO_URL = 'https://cdn.jsdelivr.net/npm/trystero@0.26.0/+esm';
+  const DEFAULT_DURATION = 3 * 60 * 1000;
+  const MAX_DURATION = (999 * 60 + 59) * 1000;
+  const MAX_QUESTIONS = 500;
+  const $ = id => document.getElementById(id);
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+  };
+  const randomId = bytes => {
+    const b = crypto.getRandomValues(new Uint8Array(bytes));
+    return btoa(String.fromCharCode(...b)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  };
+
+  // Stable per-browser identity, used to attribute votes and break write ties.
+  let me = store.get('rt-voter');
+  if (!me) { me = randomId(9); store.set('rt-voter', me); }
+
+  // A malformed %-escape in the fragment would throw; fall back to the join screen.
+  let meetingId = '';
+  try { meetingId = decodeURIComponent(location.hash.slice(1)).trim(); } catch {}
+  window.addEventListener('hashchange', () => location.reload());
+  if (/^[\w-]{16,128}$/.test(meetingId)) startMeeting(meetingId); else showJoin();
+
+  // ---------- Join screen ----------
+  function showJoin() {
+    $('join').hidden = false;
+    $('newMeeting').onclick = () => { location.hash = randomId(16); };
+    $('joinForm').onsubmit = e => {
+      e.preventDefault();
+      const raw = $('joinInput').value.trim();
+      const id = raw.includes('#') ? raw.slice(raw.indexOf('#') + 1) : raw;
+      if (!/^[\w-]{16,128}$/.test(id)) { $('joinError').textContent = "That doesn't look like a meeting link or ID."; return; }
+      location.hash = id;
+    };
+  }
+
+  // ---------- Meeting ----------
+  function startMeeting(meetingId) {
+    $('app').hidden = false;
+    const KEY = 'rt-state:' + meetingId;
+
+    const emptyState = () => ({
+      timer: { duration: DEFAULT_DURATION, endAt: null, remaining: DEFAULT_DURATION, ts: 0, by: '' },
+      // Prototype-less maps: keys come from peers, so "__proto__" etc. must stay plain keys.
+      questions: Object.create(null),
+      votes: Object.create(null),
+    });
+    const isNum = n => typeof n === 'number' && Number.isFinite(n);
+    const RESERVED = new Set(['__proto__', 'constructor', 'prototype']);
+    const isId = s => typeof s === 'string' && /^[\w-]{1,40}$/.test(s) && !RESERVED.has(s);
+    const stampOk = x => isNum(x.ts) && typeof x.by === 'string' && x.by.length <= 40;
+    const newer = (a, b) => !b || a.ts > b.ts || (a.ts === b.ts && a.by > b.by);
+    const nextTs = prev => Math.max(Date.now(), (prev?.ts ?? 0) + 1);
+
+    const validTimer = t => t && stampOk(t) && isNum(t.duration) && t.duration > 0 && t.duration <= MAX_DURATION
+      && (t.endAt === null || isNum(t.endAt)) && isNum(t.remaining) && t.remaining >= 0 && t.remaining <= t.duration;
+    const validQuestion = (id, q) => q && q.id === id && isId(id) && stampOk(q) && typeof q.text === 'string'
+      && q.text.length <= 500 && typeof q.author === 'string' && q.author.length <= 60 && isNum(q.createdAt)
+      && typeof q.answered === 'boolean' && typeof q.deleted === 'boolean';
+    const validVote = (k, v) => {
+      const [qid, voter, extra] = k.split('|');
+      return extra === undefined && isId(qid) && isId(voter) && v && stampOk(v) && (v.v === 0 || v.v === 1);
+    };
+
+    // Merge incoming (untrusted) state into target; returns which parts changed.
+    function merge(target, inc) {
+      const changed = { timer: false, questions: false };
+      if (!inc || typeof inc !== 'object') return changed;
+      const t = inc.timer;
+      if (validTimer(t) && newer(t, target.timer)) {
+        target.timer = { duration: t.duration, endAt: t.endAt, remaining: t.remaining, ts: t.ts, by: t.by };
+        changed.timer = true;
+      }
+      if (inc.questions && typeof inc.questions === 'object') {
+        for (const [id, q] of Object.entries(inc.questions)) {
+          if (!validQuestion(id, q)) continue;
+          const cur = target.questions[id];
+          if (!cur && Object.keys(target.questions).length >= MAX_QUESTIONS) continue;
+          if (newer(q, cur)) {
+            target.questions[id] = { id, text: q.text, author: q.author, createdAt: q.createdAt,
+                                     answered: q.answered, deleted: q.deleted, ts: q.ts, by: q.by };
+            changed.questions = true;
+          }
+        }
+      }
+      if (inc.votes && typeof inc.votes === 'object') {
+        for (const [k, v] of Object.entries(inc.votes)) {
+          if (!validVote(k, v) || !newer(v, target.votes[k])) continue;
+          target.votes[k] = { v: v.v, ts: v.ts, by: v.by };
+          changed.questions = true;
+        }
+      }
+      return changed;
+    }
+
+    let state = emptyState();
+    try { merge(state, JSON.parse(store.get(KEY))); } catch {}
+
+    let sendState = null;            // set once the P2P room is up
+    const persist = () => store.set(KEY, JSON.stringify(state));
+
+    // A local edit: persist, tell every peer, re-render.
+    function commit(what) {
+      persist();
+      sendState?.(state);
+      if (what.timer) { fillForm(); renderTimer(); }
+      if (what.questions) renderQuestions();
+    }
+
+    // ----- Timer -----
+    let beepedFor = null;
+    const remainingMs = () => state.timer.endAt ? Math.max(0, state.timer.endAt - Date.now()) : state.timer.remaining;
+    function setTimer(fields) {
+      state.timer = { ...state.timer, ...fields, ts: nextTs(state.timer), by: me };
+      commit({ timer: true });
+    }
+
+    function fmt(ms) {
+      const total = Math.ceil(ms / 1000);
+      const h = Math.floor(total / 3600), m = Math.floor(total % 3600 / 60), s = total % 60;
+      const pad = n => String(n).padStart(2, '0');
+      return h ? `${h}:${pad(m)}:${pad(s)}` : `${m}:${pad(s)}`;
+    }
+
+    function beep() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        [0, 0.35, 0.7].forEach(t => {
+          const o = ctx.createOscillator(), g = ctx.createGain();
+          o.frequency.value = 880; o.connect(g); g.connect(ctx.destination);
+          g.gain.setValueAtTime(0.25, ctx.currentTime + t);
+          g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t + 0.3);
+          o.start(ctx.currentTime + t); o.stop(ctx.currentTime + t + 0.3);
+        });
+      } catch {}
+    }
+
+    function fillForm() {
+      if (document.activeElement === $('minutes') || document.activeElement === $('seconds')) return;
+      const total = Math.round(state.timer.duration / 1000);
+      $('minutes').value = Math.floor(total / 60);
+      $('seconds').value = total % 60;
+    }
+
+    function renderTimer() {
+      const { duration, endAt } = state.timer;
+      const ms = remainingMs();
+      const running = !!endAt && ms > 0;
+      const done = ms === 0;
+      $('time').textContent = fmt(ms);
+      // Running: amber at ≤30s, red at ≤10s. Paused: dimmed.
+      const crit = running && ms <= 10000, warn = running && !crit && ms <= 30000;
+      $('time').classList.toggle('done', done);
+      $('time').classList.toggle('paused', !running && !done && ms < duration);
+      $('time').classList.toggle('warn', warn);
+      $('time').classList.toggle('crit', crit);
+      $('progress').classList.toggle('warn', warn);
+      $('progress').classList.toggle('crit', crit || done);
+      $('progress').style.width = (ms / duration * 100) + '%';
+      $('toggle').textContent = running ? 'Pause' : (done ? 'Restart' : (ms < duration ? 'Resume' : 'Start'));
+      $('status').textContent = running
+        ? `Ends ${new Date(endAt).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}`
+        : done ? "Time's up" : (ms < duration ? 'Paused' : '');
+      document.title = done ? "⏰ Time's up" : `${fmt(ms)} · Roundtable`;
+      if (done && endAt && beepedFor !== endAt && Date.now() - endAt < 5000) { beepedFor = endAt; beep(); }
+    }
+
+    $('toggle').onclick = () => {
+      const ms = remainingMs(), d = state.timer.duration;
+      if (state.timer.endAt && ms > 0) setTimer({ endAt: null, remaining: ms });                 // pause
+      else { const left = ms === 0 ? d : ms; setTimer({ endAt: Date.now() + left, remaining: left }); } // start / resume / restart
+    };
+    $('reset').onclick = () => setTimer({ endAt: null, remaining: state.timer.duration });
+
+    function setDuration(ms) {
+      $('formError').textContent = '';
+      setTimer({ duration: ms, endAt: null, remaining: ms });
+      $('minutes').blur(); $('seconds').blur(); fillForm();
+    }
+    $('durationForm').onsubmit = e => {
+      e.preventDefault();
+      const m = Number($('minutes').value || 0), s = Number($('seconds').value || 0);
+      if (!Number.isInteger(m) || !Number.isInteger(s) || m < 0 || s < 0 || s > 59 || m > 999) {
+        $('formError').textContent = 'Enter whole minutes (0–999) and seconds (0–59).';
+        return;
+      }
+      if (m === 0 && s === 0) { $('formError').textContent = 'Duration must be more than 0.'; return; }
+      setDuration((m * 60 + s) * 1000);
+    };
+    document.querySelectorAll('.presets button').forEach(b => {
+      b.onclick = () => setDuration(Number(b.dataset.min) * 60 * 1000);
+    });
+
+    // ----- Questions -----
+    $('qName').value = store.get('rt-name') || '';
+    $('qName').oninput = () => store.set('rt-name', $('qName').value.trim());   // remembered in this browser
+    // Once a name is set, collapse the field to "Asking as <name> · change".
+    function showAsker(editing) {
+      const name = $('qName').value.trim(), compact = !editing && !!name;
+      $('askerView').hidden = !compact;
+      $('qName').hidden = compact;
+      $('askerName').textContent = name;
+    }
+    $('changeName').onclick = () => { showAsker(true); $('qName').focus(); $('qName').select(); };
+    $('qName').addEventListener('keydown', e => {
+      if (e.key !== 'Enter') return;
+      e.preventDefault();
+      if ($('qName').value.trim()) { showAsker(false); $('qText').focus(); }
+    });
+    $('qName').addEventListener('blur', () => { if ($('qName').value.trim()) showAsker(false); });
+    showAsker(false);
+
+    $('askForm').onsubmit = e => {
+      e.preventDefault();
+      const text = $('qText').value.trim().slice(0, 500);
+      const author = $('qName').value.trim();
+      if (!author) { showAsker(true); $('qName').focus(); $('qName').reportValidity(); return; }
+      if (!text) return;
+      if (Object.keys(state.questions).length >= MAX_QUESTIONS) return;
+      const id = randomId(9), now = Date.now();
+      state.questions[id] = { id, text, author: author.slice(0, 60), createdAt: now,
+                              answered: false, deleted: false, ts: now, by: me };
+      $('qText').value = '';
+      commit({ questions: true });
+    };
+    $('qText').addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); $('askForm').requestSubmit(); }
+    });
+
+    function editQuestion(id, fields) {
+      const q = state.questions[id];
+      if (!q) return;
+      state.questions[id] = { ...q, ...fields, ts: nextTs(q), by: me };
+      commit({ questions: true });
+    }
+    function toggleVote(id) {
+      const k = id + '|' + me, cur = state.votes[k];
+      state.votes[k] = { v: cur?.v ? 0 : 1, ts: nextTs(cur), by: me };
+      commit({ questions: true });
+    }
+
+    let selectedId = null, order = [];   // keyboard selection (local only, not synced)
+    // Visible questions in display order: open first, then by votes, then oldest first.
+    function sortedQuestions() {
+      const counts = {};
+      for (const [k, v] of Object.entries(state.votes)) {
+        if (v.v) { const qid = k.slice(0, k.indexOf('|')); counts[qid] = (counts[qid] || 0) + 1; }
+      }
+      const qs = Object.values(state.questions).filter(q => !q.deleted).sort((a, b) =>
+        (a.answered - b.answered) || ((counts[b.id] || 0) - (counts[a.id] || 0)) || (a.createdAt - b.createdAt));
+      return { qs, counts };
+    }
+
+    function questionsMarkdown() {
+      const { qs, counts } = sortedQuestions();
+      const date = new Date().toLocaleDateString([], { year: 'numeric', month: 'short', day: 'numeric' });
+      const item = (q, i) => {
+        const n = counts[q.id] || 0;
+        const [first, ...rest] = q.text.split('\n');
+        return [`${i + 1}. ${first} — *${q.author || 'Anonymous'}* · ${n} vote${n === 1 ? '' : 's'}`,
+                ...rest.map(l => '   ' + l)].join('\n');
+      };
+      const section = (title, list) => list.length ? `### ${title}\n\n${list.map(item).join('\n')}\n` : '';
+      return [`## Roundtable questions (${date})\n`,
+              section('Open', qs.filter(q => !q.answered)),
+              section('Answered', qs.filter(q => q.answered))].filter(Boolean).join('\n');
+    }
+
+    async function copyQuestions() {
+      const btn = $('copyQuestions');
+      if (!sortedQuestions().qs.length) { btn.textContent = 'Nothing to copy'; }
+      else {
+        try { await navigator.clipboard.writeText(questionsMarkdown()); btn.textContent = 'Copied ✓'; }
+        catch { btn.textContent = 'Copy failed'; }
+      }
+      clearTimeout(copyQuestions.t);
+      copyQuestions.t = setTimeout(() => { btn.textContent = 'Copy as Markdown'; }, 2000);
+    }
+    $('copyQuestions').onclick = () => { copyQuestions(); $('copyQuestions').blur(); };
+
+    function renderQuestions() {
+      const { qs, counts } = sortedQuestions();
+      order = qs.map(q => q.id);
+      if (!order.includes(selectedId)) selectedId = null;
+      const open = qs.filter(q => !q.answered).length;
+      $('qCount').textContent = qs.length ? `${open} open · ${qs.length - open} answered` : '';
+
+      const list = $('qList');
+      list.replaceChildren();
+      if (!qs.length) {
+        const li = document.createElement('li');
+        li.className = 'empty';
+        li.textContent = 'No questions yet.';
+        list.append(li);
+        return;
+      }
+      for (const q of qs) {
+        const li = document.createElement('li');
+        li.className = 'q' + (q.answered ? ' answered' : '') + (q.id === selectedId ? ' selected' : '');
+        li.dataset.id = q.id;
+
+        const vote = document.createElement('button');
+        const mine = !!state.votes[q.id + '|' + me]?.v;
+        vote.className = 'vote' + (mine ? ' mine' : '');
+        const n = counts[q.id] || 0;
+        vote.title = mine ? 'Remove your vote' : 'Vote for this question';
+        vote.setAttribute('aria-pressed', String(mine));
+        vote.setAttribute('aria-label', `${mine ? 'Remove your upvote' : 'Upvote'}: ${n} vote${n === 1 ? '' : 's'}`);
+        vote.innerHTML = '<span aria-hidden="true">▲</span><strong aria-hidden="true"></strong>';
+        vote.querySelector('strong').textContent = counts[q.id] || 0;
+        vote.onclick = () => toggleVote(q.id);
+
+        const body = document.createElement('div');
+        const text = document.createElement('div');
+        text.className = 'qtext';
+        text.textContent = q.text;
+        const meta = document.createElement('div');
+        meta.className = 'qmeta';
+        const who = document.createElement('span');
+        who.textContent = q.author || 'Anonymous';
+        meta.append(who);
+        if (q.answered) {
+          const badge = document.createElement('span');
+          badge.className = 'badge';
+          badge.textContent = '✓ Answered';
+          meta.append(badge);
+        }
+        const admin = document.createElement('span');
+        admin.className = 'qadmin';
+        const ans = document.createElement('button');
+        ans.textContent = q.answered ? 'Reopen' : 'Mark answered';
+        ans.onclick = () => editQuestion(q.id, { answered: !q.answered });
+        const del = document.createElement('button');
+        del.textContent = 'Delete';
+        del.onclick = () => editQuestion(q.id, { deleted: true });
+        admin.append(ans, ' ', del);
+        meta.append(admin);
+        body.append(text, meta);
+
+        li.append(vote, body);
+        list.append(li);
+      }
+    }
+
+    // ----- Controls panel / keyboard -----
+    function togglePanel() {
+      const hidden = document.body.classList.toggle('controls-hidden');
+      if (hidden && $('panel').contains(document.activeElement)) document.activeElement.blur();
+    }
+    $('panelToggle').onclick = () => { togglePanel(); $('panelToggle').blur(); };
+    // ----- Keyboard: vim/gmail-style question navigation + timer keys -----
+    function select(id) {
+      selectedId = id;
+      renderQuestions();
+      if (id) document.querySelector(`.q[data-id="${id}"]`)?.scrollIntoView({ block: 'nearest' });
+    }
+    function move(delta) {
+      if (!order.length) return;
+      const i = order.indexOf(selectedId), last = order.length - 1;
+      const n = Math.abs(delta) === Infinity ? (delta > 0 ? last : 0)
+              : i < 0 ? (delta > 0 ? 0 : last)
+              : Math.min(last, Math.max(0, i + delta));
+      select(order[n]);
+    }
+    let lastG = 0;
+    document.addEventListener('keydown', e => {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;            // leave browser shortcuts alone (Cmd+R etc.)
+      const inField = e.target.closest('input, textarea');
+      if (e.key === 'Escape') {
+        if (inField) e.target.blur();
+        else if (!$('help').hidden) $('help').hidden = true;
+        else if (selectedId) select(null);
+        return;
+      }
+      if (inField) return;                                        // don't hijack typing
+      if (e.target.closest('button') && (e.key === ' ' || e.key === 'Enter')) return;   // native button activation
+      if (!$('help').hidden && e.key !== '?') return;
+
+      const k = e.key;
+      switch (k) {
+        case 'j': case 'ArrowDown': move(1); break;
+        case 'k': case 'ArrowUp': move(-1); break;
+        case 'G': move(Infinity); break;
+        case 'g':
+          if (Date.now() - lastG < 600) { move(-Infinity); lastG = 0; } else lastG = Date.now();
+          break;
+        case ' ': case 'Enter': case 'u': case '+': case '=':
+          if (selectedId) toggleVote(selectedId);
+          else if (k === ' ') $('toggle').click();
+          else return;
+          break;
+        case 'a':
+          if (!selectedId) return;
+          editQuestion(selectedId, { answered: !state.questions[selectedId].answered });
+          break;
+        case '#': {
+          if (!selectedId) return;
+          const i = order.indexOf(selectedId);
+          editQuestion(selectedId, { deleted: true });
+          select(order[Math.min(i, order.length - 1)] ?? null);
+          break;
+        }
+        case 'c': case 'i': case '/':
+          ($('qName').value.trim() ? $('qText') : $('qName')).focus();
+          break;
+        case 'y': copyQuestions(); break;
+        case 't': $('toggle').click(); break;
+        case 'r': $('reset').click(); break;
+        case 'h': togglePanel(); break;
+        case '?': $('help').hidden = !$('help').hidden; break;
+        default: return;
+      }
+      e.preventDefault();
+    });
+    $('help').onclick = e => { if (e.target === $('help')) $('help').hidden = true; };
+
+    $('copyLink').onclick = async () => {
+      try { await navigator.clipboard.writeText(location.href); $('copyLink').textContent = 'Copied ✓'; }
+      catch { $('copyLink').textContent = 'Copy failed: use the address bar'; }
+      setTimeout(() => { $('copyLink').textContent = 'Copy invite link'; }, 2000);
+    };
+    $('leave').onclick = () => { location.hash = ''; };
+
+    // Other tabs of this same browser share localStorage: pick up their edits too.
+    window.addEventListener('storage', e => {
+      if (e.key !== KEY) return;
+      try {
+        const c = merge(state, JSON.parse(e.newValue));
+        if (c.timer) { fillForm(); renderTimer(); }
+        if (c.questions) renderQuestions();
+      } catch {}
+    });
+
+    fillForm();
+    renderTimer();
+    renderQuestions();
+    setInterval(renderTimer, 200);
+
+    // Start with nothing focused so shortcuts work right away. Some browsers (Safari, Firefox,
+    // back/forward cache) restore focus into the last-used text box on load; undo that.
+    const unfocusFields = () => { if (document.activeElement?.closest?.('input, textarea')) document.activeElement.blur(); };
+    unfocusFields();
+    requestAnimationFrame(unfocusFields);
+    window.addEventListener('pageshow', unfocusFields);
+
+    // ----- P2P -----
+    function setConn(cls, text) { $('conn').className = cls; $('connText').textContent = text; }
+    (async () => {
+      try {
+        const { joinRoom } = await import(TRYSTERO_URL);
+        const room = joinRoom({ appId: APP_ID, password: meetingId }, meetingId, {
+          onJoinError: d => console.warn('[roundtable] peer connection failed', d),
+        });
+        const action = room.makeAction('state');
+        sendState = (s, target) => action.send(s, target ? { target } : undefined).catch(() => {});
+        const updatePeers = () => {
+          const n = Object.keys(room.getPeers()).length;
+          setConn(n ? 'on' : '', n ? `Live · ${n + 1} people` : 'Waiting for others…');
+        };
+        action.onMessage = data => {
+          const c = merge(state, data);
+          if (c.timer || c.questions) persist();
+          if (c.timer) { fillForm(); renderTimer(); }
+          if (c.questions) renderQuestions();
+        };
+        room.onPeerJoin = id => { sendState(state, id); updatePeers(); };
+        room.onPeerLeave = updatePeers;
+        updatePeers();
+      } catch (err) {
+        console.error('[roundtable] sync unavailable', err);
+        setConn('off', 'Offline: not syncing');
+      }
+    })();
+  }
+</script>
+</body>
+</html>
