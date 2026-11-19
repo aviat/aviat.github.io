@@ -70,11 +70,10 @@
   .asker strong { color:var(--fg); font-weight:600; overflow-wrap:anywhere; }
   .asker input { flex:1; min-width:0; font-size:15px; }
   .link-btn { border:0; padding:0; min-width:0; border-radius:0; font-size:inherit; background:none; color:var(--accent); text-decoration:underline; }
-  .ask-hint { grid-column: 1 / -1; }
-  @media (hover: none) { .ask-hint, .qfooter .hint { display:none; } }   /* no keyboard hints on touch devices */
+  @media (hover: none) { .qfooter .hint { display:none; } }   /* no keyboard hints on touch devices */
   .qfooter { display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap; margin-top:12px; }
   #qList { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
-  .q { display:grid; grid-template-columns:auto 1fr auto; gap:12px; align-items:start; background:var(--card);
+  .q { position:relative; display:grid; grid-template-columns:auto 1fr auto; gap:12px; align-items:start; background:var(--card);
        border:1px solid var(--line); border-radius:12px; padding:12px; }
   .q.answered .qtext { color:var(--muted); }
   .q.answered .vote { opacity:.6; }
@@ -105,6 +104,14 @@
   .answer.on { background:var(--ok); border-color:var(--ok); color:#fff; }
   .qadmin button { font-size:13px; padding:2px 10px; min-width:0; border-radius:999px; }
   body.controls-hidden .qadmin { display:none; }
+  .replies { list-style:none; margin:10px 0 0; padding:0 0 0 12px; border-left:2px solid var(--line);
+             display:flex; flex-direction:column; gap:6px; }
+  .reply { font-size:15px; white-space:pre-wrap; overflow-wrap:anywhere; }
+  .reply strong { font-weight:600; margin-right:6px; }
+  .reply .qadmin button { margin-left:8px; }
+  .replyForm { display:flex; gap:8px; margin-top:10px; align-items:flex-start; }
+  .replyForm textarea { flex:1; min-width:0; font-size:15px; padding:8px 10px; resize:vertical; min-height:40px; }
+  .replyForm button { font-size:14px; padding:8px 14px; min-width:0; }
   .empty { color:var(--muted); text-align:center; padding:24px 0; }
 
   /* Connection pill + cog */
@@ -184,7 +191,6 @@
           <input id="qName" maxlength="60" placeholder="Your name" aria-label="Your name" autocomplete="name" required pattern=".*\S.*" title="Enter your name">
         </div>
         <button type="submit" class="primary">Ask</button>
-        <div class="hint ask-hint"><kbd>Enter</kbd> send · <kbd>Shift</kbd>+<kbd>Enter</kbd> new line · <kbd>Esc</kbd> leave the box</div>
       </form>
       <ul id="qList"></ul>
       <div class="qfooter">
@@ -208,6 +214,11 @@
         <tr><td><kbd>y</kbd></td><td>Copy all questions as Markdown (yank)</td></tr>
         <tr><td><kbd>l</kbd></td><td>Copy the meeting link</td></tr>
         <tr><td><kbd>Esc</kbd></td><td>Leave the text box / clear selection</td></tr>
+      </table>
+      <h4>Writing</h4>
+      <table>
+        <tr><td><kbd>Enter</kbd></td><td>Send the question or reply</td></tr>
+        <tr><td><kbd>Shift</kbd>+<kbd>Enter</kbd></td><td>New line</td></tr>
       </table>
       <h4>Timer</h4>
       <table>
@@ -282,11 +293,13 @@
     $('app').hidden = false;
     const KEY = 'rt-state:' + meetingId;
 
+    const MAX_REPLIES = 2000;
     const emptyState = () => ({
       timer: { duration: DEFAULT_DURATION, endAt: null, remaining: DEFAULT_DURATION, ts: 0, by: '' },
       // Prototype-less maps: keys come from peers, so "__proto__" etc. must stay plain keys.
       questions: Object.create(null),
       votes: Object.create(null),
+      replies: Object.create(null),
     });
     const isNum = n => typeof n === 'number' && Number.isFinite(n);
     const RESERVED = new Set(['__proto__', 'constructor', 'prototype']);
@@ -300,6 +313,9 @@
     const validQuestion = (id, q) => q && q.id === id && isId(id) && stampOk(q) && typeof q.text === 'string'
       && q.text.length <= 500 && typeof q.author === 'string' && q.author.length <= 60 && isNum(q.createdAt)
       && typeof q.answered === 'boolean' && typeof q.deleted === 'boolean';
+    const validReply = (id, r) => r && r.id === id && isId(id) && isId(r.qid) && stampOk(r) && typeof r.text === 'string'
+      && r.text.length <= 500 && typeof r.author === 'string' && r.author.length <= 60 && isNum(r.createdAt)
+      && typeof r.deleted === 'boolean';
     const validVote = (k, v) => {
       const [qid, voter, extra] = k.split('|');
       return extra === undefined && isId(qid) && isId(voter) && v && stampOk(v) && (v.v === 0 || v.v === 1);
@@ -331,6 +347,18 @@
           if (!validVote(k, v) || !newer(v, target.votes[k])) continue;
           target.votes[k] = { v: v.v, ts: v.ts, by: v.by };
           changed.questions = true;
+        }
+      }
+      if (inc.replies && typeof inc.replies === 'object') {
+        for (const [id, r] of Object.entries(inc.replies)) {
+          if (!validReply(id, r)) continue;
+          const cur = target.replies[id];
+          if (!cur && Object.keys(target.replies).length >= MAX_REPLIES) continue;
+          if (newer(r, cur)) {
+            target.replies[id] = { id, qid: r.qid, text: r.text, author: r.author, createdAt: r.createdAt,
+                                   deleted: r.deleted, ts: r.ts, by: r.by };
+            changed.questions = true;
+          }
         }
       }
       return changed;
@@ -456,12 +484,12 @@
     $('askForm').onsubmit = e => {
       e.preventDefault();
       const text = $('qText').value.trim().slice(0, 500);
-      const author = $('qName').value.trim();
-      if (!author) { showAsker(true); $('qName').focus(); $('qName').reportValidity(); return; }
       if (!text) return;
+      const author = requireName();
+      if (!author) return;
       if (Object.keys(state.questions).length >= MAX_QUESTIONS) return;
       const id = randomId(9), now = Date.now();
-      state.questions[id] = { id, text, author: author.slice(0, 60), createdAt: now,
+      state.questions[id] = { id, text, author, createdAt: now,
                               answered: false, deleted: false, ts: now, by: me };
       $('qText').value = '';
       commit({ questions: true });
@@ -480,6 +508,36 @@
       const k = id + '|' + me, cur = state.votes[k];
       state.votes[k] = { v: cur?.v ? 0 : 1, ts: nextTs(cur), by: me };
       commit({ questions: true });
+    }
+
+    // Name is required to post; returns it, or sends the user to the name field.
+    function requireName() {
+      const author = $('qName').value.trim();
+      if (!author) { showAsker(true); $('qName').focus(); $('qName').reportValidity(); }
+      return author.slice(0, 60);
+    }
+    let replyFor = null, replyDraft = '';   // the one open reply box (local only)
+    function openReply(qid) { replyFor = qid; replyDraft = ''; renderQuestions(); document.querySelector('.replyForm textarea')?.focus(); }
+    function closeReply() { replyFor = null; replyDraft = ''; renderQuestions(); }
+    function sendReply() {
+      const text = replyDraft.trim().slice(0, 500);
+      if (!text || !state.questions[replyFor]) return;
+      const author = requireName();
+      if (!author) return;
+      if (Object.keys(state.replies).length >= MAX_REPLIES) return;
+      const id = randomId(9), now = Date.now();
+      state.replies[id] = { id, qid: replyFor, text, author, createdAt: now, deleted: false, ts: now, by: me };
+      replyFor = null; replyDraft = '';
+      commit({ questions: true });
+    }
+    function deleteReply(id) {
+      const r = state.replies[id];
+      if (!r) return;
+      state.replies[id] = { ...r, deleted: true, ts: nextTs(r), by: me };
+      commit({ questions: true });
+    }
+    function repliesOf(qid) {
+      return Object.values(state.replies).filter(r => r.qid === qid && !r.deleted).sort((a, b) => a.createdAt - b.createdAt);
     }
 
     let selectedId = null, order = [];   // keyboard selection (local only, not synced)
@@ -501,7 +559,8 @@
         const n = counts[q.id] || 0;
         const [first, ...rest] = q.text.split('\n');
         return [`${i + 1}. ${first} — *${q.author || 'Anonymous'}* · ${n} vote${n === 1 ? '' : 's'}`,
-                ...rest.map(l => '   ' + l)].join('\n');
+                ...rest.map(l => '   ' + l),
+                ...repliesOf(q.id).map(r => `   - **${r.author || 'Anonymous'}:** ${r.text.replace(/\s*\n\s*/g, ' ')}`)].join('\n');
       };
       const section = (title, list) => list.length ? `### ${title}\n\n${list.map(item).join('\n')}\n` : '';
       return [`## Roundtable questions (${date})\n`,
@@ -529,6 +588,12 @@
       $('qCount').textContent = qs.length ? `${open} open · ${qs.length - open} answered` : '';
 
       const list = $('qList');
+      // FLIP: remember where each card was, so moved cards can glide to their new spot.
+      const before = new Map();
+      for (const el of list.children) if (el.dataset.id) before.set(el.dataset.id, el.getBoundingClientRect().top);
+      // Keep an in-progress reply's focus and caret across re-renders (peers' edits re-render the list).
+      const ra = document.activeElement?.closest?.('.replyForm textarea');
+      const caret = ra ? [ra.selectionStart, ra.selectionEnd] : null;
       list.replaceChildren();
       if (!qs.length) {
         const li = document.createElement('li');
@@ -574,8 +639,54 @@
         del.textContent = 'Delete';
         del.onclick = () => editQuestion(q.id, { deleted: true });
         admin.append(del);
-        meta.append(admin);
+        const replyBtn = document.createElement('button');
+        replyBtn.type = 'button';
+        replyBtn.className = 'link-btn';
+        replyBtn.textContent = 'Reply';
+        replyBtn.onclick = () => openReply(q.id);
+        meta.append(replyBtn, admin);
         body.append(text, meta);
+
+        const reps = repliesOf(q.id);
+        if (reps.length) {
+          const ul = document.createElement('ul');
+          ul.className = 'replies';
+          for (const r of reps) {
+            const rli = document.createElement('li');
+            rli.className = 'reply';
+            const who = document.createElement('strong');
+            who.textContent = r.author || 'Anonymous';
+            const rad = document.createElement('span');
+            rad.className = 'qadmin';
+            const rdel = document.createElement('button');
+            rdel.textContent = 'Delete';
+            rdel.onclick = () => deleteReply(r.id);
+            rad.append(rdel);
+            rli.append(who, r.text, rad);
+            ul.append(rli);
+          }
+          body.append(ul);
+        }
+        if (replyFor === q.id) {
+          const form = document.createElement('form');
+          form.className = 'replyForm';
+          const ta = document.createElement('textarea');
+          ta.maxLength = 500; ta.rows = 1; ta.placeholder = 'Write a reply…'; ta.setAttribute('aria-label', 'Your reply');
+          ta.value = replyDraft;
+          ta.oninput = () => { replyDraft = ta.value; };
+          ta.addEventListener('keydown', e => {
+            if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); sendReply(); }
+            else if (e.key === 'Escape' && !ta.value.trim()) { e.stopPropagation(); closeReply(); }
+          });
+          const send = document.createElement('button');
+          send.type = 'submit'; send.className = 'primary'; send.textContent = 'Reply';
+          const cancel = document.createElement('button');
+          cancel.type = 'button'; cancel.textContent = 'Cancel';
+          cancel.onclick = closeReply;
+          form.onsubmit = e => { e.preventDefault(); sendReply(); };
+          form.append(ta, send, cancel);
+          body.append(form);
+        }
 
         const ans = document.createElement('button');
         ans.className = 'answer' + (q.answered ? ' on' : '');
@@ -588,7 +699,41 @@
         li.append(vote, body, ans);
         list.append(li);
       }
+
+      if (caret) {
+        const ta = list.querySelector('.replyForm textarea');
+        if (ta) { ta.focus(); ta.setSelectionRange(...caret); }
+      }
+      // Animate: moved cards slide (answered ones sink below the open ones), new cards fade in,
+      // and a freshly answered card's ✓ pops. Runs for peers' changes too.
+      const animate = !matchMedia('(prefers-reduced-motion: reduce)').matches && before.size > 0;
+      for (const el of list.children) {
+        const id = el.dataset.id;
+        if (!id) continue;
+        const nowAnswered = !!state.questions[id]?.answered;
+        const flipped = wasAnswered.has(id) && wasAnswered.get(id) !== nowAnswered;
+        wasAnswered.set(id, nowAnswered);
+        if (!animate) continue;
+        const top0 = before.get(id);
+        if (top0 === undefined) {
+          el.animate([{ opacity: 0, transform: 'translateY(-6px)' }, { opacity: 1, transform: 'none' }],
+                     { duration: 250, easing: 'ease-out' });
+          continue;
+        }
+        const dy = top0 - el.getBoundingClientRect().top;
+        if (Math.abs(dy) > 1) {
+          el.animate([{ transform: `translateY(${dy}px)`, zIndex: flipped ? 2 : 1 }, { transform: 'none', zIndex: flipped ? 2 : 1 }],
+                     { duration: flipped ? 550 : 350, easing: 'cubic-bezier(.2,.8,.2,1)' });
+        }
+        if (flipped && nowAnswered) {
+          el.querySelector('.answer')?.animate([{ transform: 'scale(.6)' }, { transform: 'scale(1.25)' }, { transform: 'scale(1)' }],
+                                               { duration: 350, easing: 'ease-out' });
+          el.animate([{ boxShadow: '0 0 0 3px color-mix(in srgb, var(--ok) 60%, transparent)' }, { boxShadow: '0 0 0 0 transparent' }],
+                     { duration: 900, easing: 'ease-out' });
+        }
+      }
     }
+    const wasAnswered = new Map();   // id -> answered at the last render, to spot the moment it flips
 
     // ----- Controls panel / keyboard -----
     function togglePanel() {
