@@ -74,7 +74,7 @@
   @media (hover: none) { .ask-hint, .qfooter .hint { display:none; } }   /* no keyboard hints on touch devices */
   .qfooter { display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap; margin-top:12px; }
   #qList { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
-  .q { display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:start; background:var(--card);
+  .q { display:grid; grid-template-columns:auto 1fr auto; gap:12px; align-items:start; background:var(--card);
        border:1px solid var(--line); border-radius:12px; padding:12px; }
   .q.answered .qtext { color:var(--muted); }
   .q.answered .vote { opacity:.6; }
@@ -99,6 +99,10 @@
   .qtext { font-size:18px; white-space:pre-wrap; overflow-wrap:anywhere; }
   .qmeta { color:var(--muted); font-size:13px; margin-top:6px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
   .qmeta .badge { color:var(--ok); }
+  .answer { width:36px; height:36px; min-width:0; padding:0; border-radius:50%; font-size:18px; line-height:1;
+            display:grid; place-items:center; color:var(--muted); border-color:var(--line); }
+  .answer:hover, .answer:focus-visible { color:var(--ok); border-color:var(--ok); }
+  .answer.on { background:var(--ok); border-color:var(--ok); color:#fff; }
   .qadmin button { font-size:13px; padding:2px 10px; min-width:0; border-radius:999px; }
   body.controls-hidden .qadmin { display:none; }
   .empty { color:var(--muted); text-align:center; padding:24px 0; }
@@ -108,6 +112,7 @@
   #conn i { width:8px; height:8px; border-radius:50%; background:var(--muted); display:inline-block; }
   #conn.on i { background:var(--ok); }
   #conn.off i { background:var(--done); }
+  #copyLink { font-size:13px; padding:3px 12px; min-width:0; border-radius:999px; margin-left:6px; }
   #panelToggle { position:fixed; right:16px; bottom:16px; width:48px; height:48px; min-width:0; padding:0;
                  display:grid; place-items:center; border-radius:50%;
                  border:1px solid color-mix(in srgb, var(--muted) 50%, transparent);
@@ -135,7 +140,8 @@
 </section>
 
 <div id="app" hidden>
-  <div id="conn"><i></i><span id="connText">Connecting…</span></div>
+  <div id="conn"><i></i><span id="connText">Connecting…</span>
+    <button type="button" id="copyLink" title="Copy the meeting link (l)">🔗 Copy link</button></div>
 
   <div class="layout">
     <section class="timer">
@@ -163,7 +169,6 @@
           </div>
           <div id="formError"></div>
           <div class="meeting-tools">
-            <button type="button" id="copyLink">Copy invite link</button>
             <button type="button" id="leave">Leave meeting</button>
           </div>
         </form>
@@ -201,6 +206,7 @@
         <tr><td><kbd>a</kbd></td><td>Mark selected answered / reopen</td></tr>
         <tr><td><kbd>#</kbd></td><td>Delete selected</td></tr>
         <tr><td><kbd>y</kbd></td><td>Copy all questions as Markdown (yank)</td></tr>
+        <tr><td><kbd>l</kbd></td><td>Copy the meeting link</td></tr>
         <tr><td><kbd>Esc</kbd></td><td>Leave the text box / clear selection</td></tr>
       </table>
       <h4>Timer</h4>
@@ -564,17 +570,22 @@
         }
         const admin = document.createElement('span');
         admin.className = 'qadmin';
-        const ans = document.createElement('button');
-        ans.textContent = q.answered ? 'Reopen' : 'Mark answered';
-        ans.onclick = () => editQuestion(q.id, { answered: !q.answered });
         const del = document.createElement('button');
         del.textContent = 'Delete';
         del.onclick = () => editQuestion(q.id, { deleted: true });
-        admin.append(ans, ' ', del);
+        admin.append(del);
         meta.append(admin);
         body.append(text, meta);
 
-        li.append(vote, body);
+        const ans = document.createElement('button');
+        ans.className = 'answer' + (q.answered ? ' on' : '');
+        ans.textContent = '✓';
+        ans.title = q.answered ? 'Answered: click to reopen (a)' : 'Mark answered (a)';
+        ans.setAttribute('aria-pressed', String(q.answered));
+        ans.setAttribute('aria-label', q.answered ? 'Reopen question' : 'Mark question answered');
+        ans.onclick = () => editQuestion(q.id, { answered: !q.answered });
+
+        li.append(vote, body, ans);
         list.append(li);
       }
     }
@@ -641,6 +652,7 @@
           ($('qName').value.trim() ? $('qText') : $('qName')).focus();
           break;
         case 'y': copyQuestions(); break;
+        case 'l': copyLink(); break;
         case 't': $('toggle').click(); break;
         case 'r': $('reset').click(); break;
         case 'h': togglePanel(); break;
@@ -651,11 +663,14 @@
     });
     $('help').onclick = e => { if (e.target === $('help')) $('help').hidden = true; };
 
-    $('copyLink').onclick = async () => {
-      try { await navigator.clipboard.writeText(location.href); $('copyLink').textContent = 'Copied ✓'; }
-      catch { $('copyLink').textContent = 'Copy failed: use the address bar'; }
-      setTimeout(() => { $('copyLink').textContent = 'Copy invite link'; }, 2000);
-    };
+    async function copyLink() {
+      const btn = $('copyLink');
+      try { await navigator.clipboard.writeText(location.href); btn.textContent = 'Copied ✓'; }
+      catch { btn.textContent = 'Copy failed: use the address bar'; }
+      clearTimeout(copyLink.t);
+      copyLink.t = setTimeout(() => { btn.textContent = '🔗 Copy link'; }, 2000);
+    }
+    $('copyLink').onclick = () => { copyLink(); $('copyLink').blur(); };
     $('leave').onclick = () => { location.hash = ''; };
 
     // Other tabs of this same browser share localStorage: pick up their edits too.
